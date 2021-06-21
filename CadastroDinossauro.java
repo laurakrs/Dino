@@ -32,12 +32,12 @@ public class CadastroDinossauro{
         //pesquisa no vetor por um objeto Dinossauro com o id recebido como parâmetro. 
         //Se não encontrar, retorna null;
 
-        for(int i=0; i < proxPosicao ; i++){
+        for(int i = 0; i < proxPosicao ; i++){
             if(listaDinossauros[i].getId() == id){
                 return listaDinossauros[i];
             }
         }
-        return null; //acho que vai retornar null sempre???
+        return null; //Funciona aqui? Testar
     }
     
     public boolean removerDinossauro(int id){
@@ -46,12 +46,18 @@ public class CadastroDinossauro{
         //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
         for(int i = 0; i < proxPosicao ; i++){
             if(listaDinossauros[i].getId() == id){
-                listaDinossauros[i].toString(); //remover o dino 
-                // reordenar o vetor
+                listaDinossauros[i] = null; //é assim?
+                // reordenar o vetor. Qual forma vamos escolher?
+                for(int j = i+1; j < proxPosicao; j++){
+                    listaDinossauros[j-1] = listaDinossauros[j]; //nao deve estar certo
+                }
+                System.out.println("Objeto removido com sucesso");
+                proxPosicao--; //nao esquecer de decrementar proxPosicao
                 return true; 
             }
         }
-        return true;
+        System.out.println("Objeto não encontrado!");
+        return false;
 
     }
 
@@ -59,7 +65,39 @@ public class CadastroDinossauro{
          /*   O método deve retornar uma String na qual devem aparecer as informações referentes a
         quantidade de animais para cada tipo e categoria.
         Exemplo: Carnívoros: PP: 52, MP: 20, GP: 12. Herbívoros: PP: 68, MP: 38, GP: 30.*/
-        return "oi";
+
+        String listaQtd = " "; 
+        int carnivorosPP = 0;
+        int carnivorosMP = 0;
+        int carnivorosGP = 0; 
+        int herbivorosPP = 0;
+        int herbivorosMP = 0;
+        int herbivorosGP = 0; 
+
+        for(int i = 0; i < proxPosicao; i++){
+            if(listaDinossauros[i].getCategoria() == 1){//Pequeno porte
+                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+                    carnivorosPP++;
+                } else {
+                    herbivorosPP++;//2 herbivoros
+                }
+            } else if(listaDinossauros[i].getCategoria() == 2){//Medio porte
+                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+                    carnivorosMP++;
+                } else {
+                    herbivorosMP++;//2 herbivoros
+                }
+            } else { // Grande Porte
+                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+                    carnivorosGP++;
+                } else {
+                    herbivorosGP++;//2 herbivoros
+                }
+            }
+
+        }
+        listaQtd = "Carnívoros: PP: " + carnivorosPP + ", MP: " + carnivorosMP + ", GP: " + carnivorosGP + ". Herbívoros: PP: " + herbivorosPP + ", MP: " + herbivorosMP + ", GP: " + herbivorosGP + ".";
+        return listaQtd;
     }
    
     public Dinossauro relatorioPesoPesado(int tipo, int categoria){ //Relatório “Peso pesado”:
