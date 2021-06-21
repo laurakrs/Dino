@@ -9,6 +9,8 @@ public class App
    String opcao1; 
    String opcao2;
 
+   CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro(); 
+
    System.out.println("Bem-vindo ao Jurassic Zoo!");
    
    while (check){
@@ -30,14 +32,14 @@ public class App
 
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
                      id = Integer.parseInt(in.nextLine());
-                     System.out.println(CadastroDinossauro.pesquisarDinossauro(id)); //pede pra mudar pra static 
+                     System.out.println(cadastroDinossauro1.pesquisarDinossauro(id)); //pede pra mudar pra static 
                      check2 = false;
                      //CadastroDinossauro.pesquisarDinossauro();
                      break;
                   case "3": //Remover dino
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja remover? ");
                      id = Integer.parseInt(in.nextLine());
-                     CadastroDinossauro.removerDinossauro(id); //problema do static 
+                     cadastroDinossauro1.removerDinossauro(id); //problema do static 
                      break; 
                   default: 
                      System.out.println("Entrada invalida. Tente novamente.");
@@ -52,7 +54,7 @@ public class App
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //QTD de animais de cada tipo e categoria
-                     CadastroDinossauro.relatorioQtdAnimais(); //problema do static 
+                     cadastroDinossauro1.relatorioQtdAnimais(); //problema do static 
                      check2 = false;
                      break;
                   case "2": //Peso pesado
