@@ -4,15 +4,26 @@ um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguinte
 
 public class CadastroDinossauro{
 
-    Dinossauro ListaDinossauros [] = new Dinossauro [100];
+    Dinossauro[] listaDinossauros; 
+    int proxPosicao; 
 
-    int dinosOcupados = 0; 
+    public CadastroDinossauro(){ //construtor. não sei se precisa mas to colocando
+        this.listaDinossauros = new Dinossauro[100];
+        this.proxPosicao = 0; 
+    }
 
     public boolean adicionarDinoussauro(Dinossauro dino){ 
         //public boolean adicionarDinossauro(Dinossauro dino): 
         //adiciona um objeto Dinossauro na última posição disponível no vetor. 
         //Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
-        return true;
+        if(proxPosicao == 100){
+            System.out.println("O vetor de Dinossauros já está cheio!");
+            return false;
+        }else{
+            listaDinossauros[proxPosicao] = dino; 
+            System.out.println("Sucesso! Dinossauro adicionado ao vetor!");
+            return true;
+        }
 
     }
 
@@ -21,9 +32,9 @@ public class CadastroDinossauro{
         //pesquisa no vetor por um objeto Dinossauro com o id recebido como parâmetro. 
         //Se não encontrar, retorna null;
 
-        for(int i=0; i < dinosOcupados ; i++){
-            if(ListaDinossauros[i].getId() == id){
-                return ListaDinossauros[i];
+        for(int i=0; i < proxPosicao ; i++){
+            if(listaDinossauros[i].getId() == id){
+                return listaDinossauros[i];
             }
         }
         return null; //acho que vai retornar null sempre???
@@ -33,9 +44,9 @@ public class CadastroDinossauro{
         
         //remove do vetor o objeto Dinossauro que contém o id indicado. 
         //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
-        for(int i = 0; i < dinosOcupados ; i++){
-            if(ListaDinossauros[i].getId() == id){
-                ListaDinossauros[i].toString(); //remover o dino 
+        for(int i = 0; i < proxPosicao ; i++){
+            if(listaDinossauros[i].getId() == id){
+                listaDinossauros[i].toString(); //remover o dino 
                 // reordenar o vetor
                 return true; 
             }
@@ -56,7 +67,7 @@ public class CadastroDinossauro{
     Escreva um método que receba por parâmetro o tipo e categoria de um dinossauro 
     e retorne o dinossauro (objeto) mais pesado do tipo e da categoria.*/
 
-        return ListaDinossauros[0]; 
+        return listaDinossauros[0]; 
     } 
 
     public double relatorioQtdDeCarne(){
