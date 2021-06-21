@@ -4,40 +4,42 @@ um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguinte
 
 public class CadastroDinossauro{
 
-    Dinossauro[] listaDinossauros; 
-    int proxPosicao; 
+    private Dinossauro [] ListaDinossauros;
+    private int proxPosicao; 
 
-    public CadastroDinossauro(){ //construtor. não sei se precisa mas to colocando
-        this.listaDinossauros = new Dinossauro[100];
-        this.proxPosicao = 0; 
+//precisa de constutor será?
+
+    public CadastroDinossauro(){
+        this.ListaDinossauros = new Dinossauro [100];
+        this.proxPosicao = 0;
     }
 
     public boolean adicionarDinoussauro(Dinossauro dino){ 
         //public boolean adicionarDinossauro(Dinossauro dino): 
         //adiciona um objeto Dinossauro na última posição disponível no vetor. 
         //Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
-        if(proxPosicao == 100){
-            System.out.println("O vetor de Dinossauros já está cheio!");
+        if(this.proxPosicao == 100){
+            System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
             return false;
         }else{
-            listaDinossauros[proxPosicao] = dino; 
-            System.out.println("Sucesso! Dinossauro adicionado ao vetor!");
+            this.ListaDinossauros[proxPosicao] = dino;
+            this.proxPosicao++;
+            System.out.println("Sucesso! Dinossauro adicionado!");
             return true;
         }
-
     }
 
-    public Dinossauro pesquisarDinossauro(int id){
+    public Dinossauro pesquisarDinossauro(int id){ //o que significa esse static que eu coloquei aqui pra fucnionar?
         //public Dinossauro pesquisarDinossauro(int id): 
         //pesquisa no vetor por um objeto Dinossauro com o id recebido como parâmetro. 
         //Se não encontrar, retorna null;
 
-        for(int i = 0; i < proxPosicao ; i++){
-            if(listaDinossauros[i].getId() == id){
-                return listaDinossauros[i];
+        for(int i=0; i < proxPosicao ; i++){
+            if(ListaDinossauros[i].getId() == id){
+                return ListaDinossauros[i];
             }
         }
-        return null; //Funciona aqui? Testar
+        return null; //será que vai retornar null sempre??? Espero que não! Testar
     }
     
     public boolean removerDinossauro(int id){
@@ -45,19 +47,16 @@ public class CadastroDinossauro{
         //remove do vetor o objeto Dinossauro que contém o id indicado. 
         //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
         for(int i = 0; i < proxPosicao ; i++){
-            if(listaDinossauros[i].getId() == id){
-                listaDinossauros[i] = null; //é assim?
-                // reordenar o vetor. Qual forma vamos escolher?
-                for(int j = i+1; j < proxPosicao; j++){
-                    listaDinossauros[j-1] = listaDinossauros[j]; //nao deve estar certo
+            if(ListaDinossauros[i].getId() == id){
+                ListaDinossauros[i] = null; //remover o dino . é assim que remove?
+                // reordenar o vetor. qual forma de reordenar vamos escolher? todo mundo depois do ListaDinossauros[i] tem que andar um pra trás
+                for(int j = i+1; j < proxPosicao; j++){ //fiz uma loucura aqui que acho que não funciona
+                    ListaDinossauros[j-1] = ListaDinossauros[j]; //não deve estar certo 
                 }
-                System.out.println("Objeto removido com sucesso");
-                proxPosicao--; //nao esquecer de decrementar proxPosicao
                 return true; 
             }
         }
-        System.out.println("Objeto não encontrado!");
-        return false;
+        return false; ////será que vai retornar false sempre??? Espero que não! Testar. Não encontrou o objeto
 
     }
 
@@ -65,39 +64,40 @@ public class CadastroDinossauro{
          /*   O método deve retornar uma String na qual devem aparecer as informações referentes a
         quantidade de animais para cada tipo e categoria.
         Exemplo: Carnívoros: PP: 52, MP: 20, GP: 12. Herbívoros: PP: 68, MP: 38, GP: 30.*/
-
-        String listaQtd = " "; 
+        String listaFinal = " ";
         int carnivorosPP = 0;
         int carnivorosMP = 0;
         int carnivorosGP = 0; 
         int herbivorosPP = 0;
         int herbivorosMP = 0;
-        int herbivorosGP = 0; 
+        int herbivorosGP = 0;
+
 
         for(int i = 0; i < proxPosicao; i++){
-            if(listaDinossauros[i].getCategoria() == 1){//Pequeno porte
-                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+            if(ListaDinossauros[i].getCategoria() == 1){ //Pequeno porte
+                if(ListaDinossauros[i].getTipo() == 1){//carnivoro
                     carnivorosPP++;
-                } else {
-                    herbivorosPP++;//2 herbivoros
+                } else{
+                    herbivorosPP++;//herbivoro
                 }
-            } else if(listaDinossauros[i].getCategoria() == 2){//Medio porte
-                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+            } else if(ListaDinossauros[i].getCategoria() == 2){//Medio porte
+                if(ListaDinossauros[i].getTipo() == 1){//carnivoro
                     carnivorosMP++;
-                } else {
-                    herbivorosMP++;//2 herbivoros
+                } else{
+                    herbivorosMP++;//herbivoro
                 }
-            } else { // Grande Porte
-                if(listaDinossauros[i].getTipo() == 1){//Carnivoro
+            } else{// 3 Grande Porte
+                if(ListaDinossauros[i].getTipo() == 1){//carnivoro
                     carnivorosGP++;
-                } else {
-                    herbivorosGP++;//2 herbivoros
+                } else{
+                    herbivorosGP++;//herbivoro
                 }
             }
+         }
 
-        }
-        listaQtd = "Carnívoros: PP: " + carnivorosPP + ", MP: " + carnivorosMP + ", GP: " + carnivorosGP + ". Herbívoros: PP: " + herbivorosPP + ", MP: " + herbivorosMP + ", GP: " + herbivorosGP + ".";
-        return listaQtd;
+        listaFinal = "Carnivoros: PP: " + carnivorosPP + ", MP: " + carnivorosMP + ", GP: " + carnivorosGP + ". Herbivoros: PP: " + herbivorosPP + ", MP: " + herbivorosMP + ", GP: " + herbivorosGP;
+        
+        return listaFinal;
     }
    
     public Dinossauro relatorioPesoPesado(int tipo, int categoria){ //Relatório “Peso pesado”:
@@ -105,7 +105,7 @@ public class CadastroDinossauro{
     Escreva um método que receba por parâmetro o tipo e categoria de um dinossauro 
     e retorne o dinossauro (objeto) mais pesado do tipo e da categoria.*/
 
-        return listaDinossauros[0]; 
+        return ListaDinossauros[0]; 
     } 
 
     public double relatorioQtdDeCarne(){

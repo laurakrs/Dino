@@ -21,16 +21,23 @@ public class App
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //Adicionar dino
-
+                     //Pediremos as info do usuario e criaremos um dino?
                      //CadastroDinossauro.adicionarDinossauro();
                      check2 = false;
                      break;
                   case "2": //Pesquisar dino
+                     int id = 0;
+
+                     System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
+                     id = Integer.parseInt(in.nextLine());
+                     System.out.println(CadastroDinossauro.pesquisarDinossauro(id)); //pede pra mudar pra static 
                      check2 = false;
                      //CadastroDinossauro.pesquisarDinossauro();
                      break;
                   case "3": //Remover dino
-                     //CadastroDinossauro.removerDinossauro();
+                     System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja remover? ");
+                     id = Integer.parseInt(in.nextLine());
+                     CadastroDinossauro.removerDinossauro(id); //problema do static 
                      break; 
                   default: 
                      System.out.println("Entrada invalida. Tente novamente.");
@@ -45,8 +52,7 @@ public class App
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //QTD de animais de cada tipo e categoria
-
-                     //CadastroDinossauro.relatorioQtdAnimais();
+                     CadastroDinossauro.relatorioQtdAnimais(); //problema do static 
                      check2 = false;
                      break;
                   case "2": //Peso pesado
