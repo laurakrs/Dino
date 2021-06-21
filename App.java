@@ -15,9 +15,9 @@ public class App
    
    while (check){
    System.out.println("Menu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio");
-      opcao1 = in.nextLine();
+      opcao1 = in.nextLine(); //ver se tem que ser String mesmo. Vamos pedir alguma String depois?
       switch(opcao1){
-         case "1"://Menu de cadastros
+         case "1"://Menu de cadastros 
             while(check2){
                System.out.println("Menu de cadastros: \nEntre com a opcao desejada: \n1 - Adicionar dinossauro \n2 - Pesquisar dinossauro \n3 - Remover dinossauro ");
                opcao2 = in.nextLine();
@@ -90,6 +90,7 @@ public class App
 
                 }
    }
+   in.close();
 }
 }
 
