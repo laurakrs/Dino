@@ -76,8 +76,12 @@ public class App
          default:
             System.out.println("Entrada invalida. Tente novamente.");
             continue;
-      }
+
+            
+            
+
+                }
    }
  
-} 
+   System.out.println("teste rhay");} 
 }
