@@ -21,17 +21,16 @@ public class App
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //Adicionar dino
+
                      //CadastroDinossauro.adicionarDinossauro();
                      check2 = false;
                      break;
                   case "2": //Pesquisar dino
-                     //CadastroDinossauro.pesquisarDinossauro();
                      check2 = false;
+                     //CadastroDinossauro.pesquisarDinossauro();
                      break;
                   case "3": //Remover dino
                      //CadastroDinossauro.removerDinossauro();
-                     check2 = false;
-
                      break; 
                   default: 
                      System.out.println("Entrada invalida. Tente novamente.");
@@ -83,6 +82,6 @@ public class App
 
                 }
    }
- 
-   System.out.println("teste rhay");} 
 }
+}
+
