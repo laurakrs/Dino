@@ -19,7 +19,8 @@ public class App
       switch(opcao1){
          case "1"://Menu de cadastros 
             while(check2){
-               System.out.println("Menu de cadastros: \nEntre com a opcao desejada: \n1 - Adicionar dinossauro \n2 - Pesquisar dinossauro \n3 - Remover dinossauro ");
+               System.out.println("Menu de cadastros: \nEntre com a opcao desejada:");
+               System.out.println("1 - Adicionar dinossauro \n2 - Pesquisar dinossauro \n3 - Remover dinossauro ");
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //Adicionar dino
