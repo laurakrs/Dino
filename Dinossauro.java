@@ -15,9 +15,60 @@ public class Dinossauro {
         this.peso = peso;
         this.velocidade = velocidade;
 
-
     }
 
+    public int getId(){
+        return this.id;
+    }
 
+    public void setId(int id){
+        this.id = id; 
+    }
+
+    public String getNomeRaca(){
+        return this.nomeRaca;
+    }
+
+    public void setNomeRaca(String nomeRaca){
+        this.nomeRaca = nomeRaca;
+    }
+
+    public int getTipo(){
+        return this.tipo;
+    }
+
+    public void setTipo(int tipo){
+        this.tipo = tipo;
+    }
+
+    public int getCategoria(){
+        return this.categoria;
+    }
+    
+    public void setCategoria(int categoria){
+        this.categoria = categoria;
+    }
+
+    public double getPeso(){
+        return this.peso;
+    }
+
+    public void setPeso(double peso){
+        this.peso = peso;
+    }
+
+    public double getVelocidade(){
+        return this.velocidade;
+    }
+
+    public void setVelocidade(double velocidade){
+        this.velocidade = velocidade;
+    }
+
+    @Override //toString
+    public String toString(){
+        return ("ID do dinossauro: " + this.id + " | Nome da raca: " + this.nomeRaca + " | Tipo " + this.tipo  + " | Categoria: " + this.categoria + " | Peso " + this.peso + " kg" + " | Velocidade " + this.velocidade + " km/h");
+    
+    }
 
 }
