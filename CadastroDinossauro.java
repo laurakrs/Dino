@@ -4,13 +4,17 @@ um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguinte
 
 public class CadastroDinossauro{
 
+
+
+    public static final int TOTAL_DINOS = 100; 
+
     private Dinossauro [] ListaDinossauros;
     private int proxPosicao; 
 
 //precisa de constutor será?
 
     public CadastroDinossauro(){
-        this.ListaDinossauros = new Dinossauro [100];
+        this.ListaDinossauros = new Dinossauro [TOTAL_DINOS];
         this.proxPosicao = 0;
     }
 
@@ -18,7 +22,7 @@ public class CadastroDinossauro{
         //public boolean adicionarDinossauro(Dinossauro dino): 
         //adiciona um objeto Dinossauro na última posição disponível no vetor. 
         //Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
-        if(this.proxPosicao == 100){
+        if(this.proxPosicao == TOTAL_DINOS){
             System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
             return false;
         }else{
@@ -105,7 +109,21 @@ public class CadastroDinossauro{
     Escreva um método que receba por parâmetro o tipo e categoria de um dinossauro 
     e retorne o dinossauro (objeto) mais pesado do tipo e da categoria.*/
 
-        return ListaDinossauros[0]; 
+        int idMaisPesado = 0; 
+        double maiorPeso = 0.0; 
+
+        for(int i = 0; i < proxPosicao ; i++){
+            if(ListaDinossauros[i].getTipo() == tipo){
+                if(ListaDinossauros[i].getCategoria() == categoria){
+                    if(ListaDinossauros[i].getPeso() > maiorPeso){
+                        idMaisPesado = i; 
+                    }
+                }
+                
+            }
+        }
+        
+        return ListaDinossauros[idMaisPesado]; 
     } 
 
     public double relatorioQtdDeCarne(){
