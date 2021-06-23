@@ -159,8 +159,40 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
     }
 
-    public boolean relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker){
+    public boolean relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu, int i){
+       
+        double tempoDinossauro = 0.0;
+        double tempoPessoa = 0.0;
 
+        distanciaDinoBunker = 0.0; //vamos pedir pro usuário essas infos?
+        distanciaPessoaBunker = 0.0;
+
+        System.out.println("Escolha um dinossauro abaixo pelo ID:");
+
+        for( i = 0; i < proxPosicao ; i++){
+               System.out.println(ListaDinossauros);
+            }
+
+        tempoDinossauro = (distanciaDinoBunker / (ListaDinossauros[i].getVelocidade()));
+        tempoPessoa = (distanciaPessoaBunker / 20);
+
+            if (tempoPessoa > tempoDinossauro) {
+                fugiu = false;
+                return false;
+            } else if (tempoPessoa < tempoDinossauro) {
+                fugiu = true;
+                return true;
+             } else {
+                System.out.println("O tempo que a pessoa e o dinossauro levam até o bunker é o mesmo.");
+                fugiu = false;
+                return false;
+            }
+        }
+        
+            
+        
+    
+    
         /*Relatório “Dá tempo de fugir?”:
         Esse relatório, devido aos últimos acidentes, é considerado de extrema importância.
         Considera-se que, para corridas curtas em situação de extremo desespero, uma pessoa consiga correr em média a 20km/h. Sabemos que alguns dinossauros são corredores natos. Assim, as cercas para observação são construídas a determinada distância do dinossauro e bunkers de proteção são instalados próximo as cercas para pessoas se abrigarem em caso de fuga do animal.
@@ -168,8 +200,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         o Distância entre o dinossauro e o bunker (em km). o Distância entre a pessoa e o bunker (em km).
         Seu método deverá retornar verdadeiro quando o tempo que a pessoa leva para correr até o bunker é menor que o tempo que o dinossauro leva para correr a mesma distância. Caso contrário, deve retornar falso.
         A fórmula para o cálculo do tempo é tempo = distância/velocidade. */
-        return true;
-    }
+    
 
     public Dinossauro[] relatorioTop10(){
         /*Relatório “Top 10 mais velozes”:
