@@ -18,7 +18,7 @@ public class CadastroDinossauro{
         this.proxPosicao = 0;
     }
 
-    public boolean adicionarDinoussauro(Dinossauro dino){ 
+    public boolean adicionarDinossauro(Dinossauro dino){ 
         //public boolean adicionarDinossauro(Dinossauro dino): 
         //adiciona um objeto Dinossauro na última posição disponível no vetor. 
         //Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
@@ -116,14 +116,19 @@ public class CadastroDinossauro{
             if(ListaDinossauros[i].getTipo() == tipo){
                 if(ListaDinossauros[i].getCategoria() == categoria){
                     if(ListaDinossauros[i].getPeso() > maiorPeso){
+                        maiorPeso = ListaDinossauros[i].getPeso();
                         idMaisPesado = i; 
-                    }
+                    } 
                 }
                 
             }
         }
-        
-        return ListaDinossauros[idMaisPesado]; 
+        if (maiorPeso == 0.0) {
+            System.out.println("Ainda não há dinossauros desse tipo e categoria.");
+            return null;
+        } else {
+            return ListaDinossauros[idMaisPesado]; 
+        }
     } 
 
     public double relatorioQtdDeCarne(){
@@ -134,7 +139,23 @@ Raças de médio porte comem cerca de 15% de seu peso por dia.
 Raças de grande porte comem cerca de 20$ de seu peso por dia. 
 O método deve retornar à quantidade (em Kg) de carne que 
 deve ser comprado no mês (considere o mês por 30 dias).*/
-        return 0.0; 
+
+        double totalCarne = 0.0; 
+
+        for(int i = 0; i < proxPosicao; i++){
+            if(ListaDinossauros[i].getTipo() == 1){//carnivoro
+                if(ListaDinossauros[i].getCategoria() == 1){ //pequeno porte
+                    totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.10 * 30);
+                } else if(ListaDinossauros[i].getCategoria() == 2){//Medio porte
+                    totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.15 * 30);
+                } else{// 3 Grande Porte
+                    totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.20 * 30);
+                }
+            }
+        }
+
+
+        return totalCarne; 
 
     }
 
