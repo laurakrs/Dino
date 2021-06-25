@@ -34,19 +34,45 @@ public class App
                System.out.println("1 - Adicionar dinossauro \n2 - Pesquisar dinossauro \n3 - Remover dinossauro \n4 - Voltar ");
                opcao2 = in.nextLine();
                switch(opcao2){
-                  case "1": //Adicionar dino. nao sei fazer
-                     System.out.println("Qual dinossauro voce deseja adicionar?");
-                     //cadastroDinossauro1.adicionarDinossauro();
+                  case "1": //Adicionar dino. Pedir entradas do usuário
+
+                     int id = 0; 
+                     String nome = ""; 
+                     int tipo = 0; 
+                     int categoria = 0; 
+                     double peso = 0.0;
+                     double velocidade = 0.0; 
+
+
+                     System.out.println("Vamos adicionar um novo dinossauro!");
+                     System.out.println("Número de identificacao do dinossauro: "); //int
+                     id = Integer.parseInt(in.nextLine()); 
+                     System.out.println("Nome da raca: "); //String
+                     nome = in.nextLine(); 
+                     System.out.println("Tipo - Digite 1 para carnívoros e 2 para herbívoros: "); //int
+                     tipo = Integer.parseInt(in.nextLine());
+                     System.out.println("Categoria - Digite 1 para Pequeno Porte, 2 para Medio Porte e 3 para Grande Porte: "); //int
+                     categoria = Integer.parseInt(in.nextLine());
+                     System.out.println("Peso em kg: ");  //double
+                     peso = Double.parseDouble(in.nextLine());
+                     System.out.println("Velocidade maxima em km/h: "); //velocidade
+                     velocidade = Double.parseDouble(in.nextLine());
+                     
+                     Dinossauro novoDino = new Dinossauro(id, nome, tipo, categoria, peso, velocidade);
+                     cadastroDinossauro1.adicionarDinossauro(novoDino);
+
                      check2 = false;
                      break;
+                     
                   case "2": //Pesquisar dino
-                     int id = 0;
+                     int search_id = 0;
 
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
-                     id = Integer.parseInt(in.nextLine());
-                     System.out.println(cadastroDinossauro1.pesquisarDinossauro(id));  
+                     search_id = Integer.parseInt(in.nextLine());
+                     System.out.println(cadastroDinossauro1.pesquisarDinossauro(search_id));  
                      check2 = false;
                      break;
+
                   case "3": //Remover dino
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja remover? ");
                      id = Integer.parseInt(in.nextLine());
