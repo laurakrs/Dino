@@ -245,7 +245,18 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     }
 
     
+    public boolean verificaId (int id){
+        for(int i = 0; i < proxPosicao; i++){
+            //System.out.println("A ID 1 é : " + dino.getId());
+            if(id == ListaDinossauros[i].getId()){//ja tem aquela id 
+                System.out.println("Já existe um dinossauro com esse numero de identificacao. Tente novamente com outro ID.");
+                return false; 
+            } 
+        }
+        
+        return true; 
 
+    }
 
   
 
