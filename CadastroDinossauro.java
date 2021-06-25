@@ -26,14 +26,13 @@ public class CadastroDinossauro{
             System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
             return false;
         }else{
-            this.ListaDinossauros[proxPosicao] = dino;
-            this.proxPosicao++;
             //percorrer todos os ids pra ver se não tem um dino já com esse id
+    
             for(int i = 0; i < proxPosicao; i++){
-                System.out.println("A ID 1 é : " + dino.getId());
+                //System.out.println("A ID 1 é : " + dino.getId());
                 if(dino.getId() == ListaDinossauros[i].getId()){//ja tem aquela id 
-                    System.out.println("A ID do [i] é " + ListaDinossauros[i].getId());
-                    System.out.println(ListaDinossauros[i]); 
+                    //System.out.println("A ID do [i] é " + ListaDinossauros[i].getId());
+                    //System.out.println(ListaDinossauros[i]); 
                     System.out.println("Já existe um dinossauro com esse numero de identificacao. Tente novamente com outro ID.");
                     return false; 
                 } 
@@ -58,7 +57,9 @@ public class CadastroDinossauro{
                 System.out.println("Velocidade inválida. ");
                 return false; 
             }
-
+            
+            this.ListaDinossauros[proxPosicao] = dino;
+            this.proxPosicao++;
             System.out.println("Sucesso! Dinossauro adicionado!");
             return true;
         }

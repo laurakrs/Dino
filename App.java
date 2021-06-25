@@ -61,8 +61,8 @@ public class App
                      Dinossauro novoDino = new Dinossauro(id, nome, tipo, categoria, peso, velocidade);
                      cadastroDinossauro1.adicionarDinossauro(novoDino);
 
-                     check2 = false;
-                     break;
+                     
+                     continue;
                      
                   case "2": //Pesquisar dino
                      int search_id = 0;
@@ -79,15 +79,16 @@ public class App
                      cadastroDinossauro1.removerDinossauro(id); //problema do static 
                      break; 
                   case "4": //Voltar - nao funciona
+                     check2 = false;
                      check = true;
-                     return;
+                     continue;
                   default: 
                      System.out.println("Entrada invalida. Tente novamente.");
                      continue;
                }
          }
-            check = false;
-            break;
+           //check = false;
+            //break;
          case "2": //Menu de relatorios
             while(check2) {
                System.out.println("Menu de relatorios: \nEntre com a opcao desejada: \n1 - Quantidade de animais de cada tipo e categoria \n2 - Peso Pesado \n3 - Quantidade de carne para carnívoros \n4 - Dá tempo de fugir? \n5 - Top 10 mais velozes \n6 - Voltar");
@@ -130,6 +131,7 @@ public class App
             }
             check = false;
             break;
+
          case "3": //Sair
             System.out.println("Saindo...");
             check = false;
@@ -141,7 +143,8 @@ public class App
             
             
 
-                }
+             
+         }
    }
    in.close();
 }
