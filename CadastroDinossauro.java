@@ -50,13 +50,14 @@ public class CadastroDinossauro{
         
         //remove do vetor o objeto Dinossauro que contém o id indicado. 
         //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
-        for(int i = 0; i < proxPosicao ; i++){
+        for(int i = 0; i < this.proxPosicao ; i++){
             if(ListaDinossauros[i].getId() == id){
-                ListaDinossauros[i] = null; //remover o dino . é assim que remove?
+                ListaDinossauros[i] = null;
                 // reordenar o vetor. qual forma de reordenar vamos escolher? todo mundo depois do ListaDinossauros[i] tem que andar um pra trás
                 for(int j = i+1; j < proxPosicao; j++){ //fiz uma loucura aqui que acho que não funciona
                     ListaDinossauros[j-1] = ListaDinossauros[j]; //não deve estar certo 
                 }
+                this.proxPosicao = this.proxPosicao - 1; 
                 return true; 
             }
         }
@@ -212,6 +213,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     }
 
     public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
+        
         Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
 
         vetorNovo = vetor; 
