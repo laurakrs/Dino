@@ -26,38 +26,6 @@ public class CadastroDinossauro{
             System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
             return false;
         }else{
-            //percorrer todos os ids pra ver se não tem um dino já com esse id
-    
-            for(int i = 0; i < proxPosicao; i++){
-                //System.out.println("A ID 1 é : " + dino.getId());
-                if(dino.getId() == ListaDinossauros[i].getId()){//ja tem aquela id 
-                    //System.out.println("A ID do [i] é " + ListaDinossauros[i].getId());
-                    //System.out.println(ListaDinossauros[i]); 
-                    System.out.println("Já existe um dinossauro com esse numero de identificacao. Tente novamente com outro ID.");
-                    return false; 
-                } 
-            }
-            //ver se tipo é 1 ou 2
-            if(dino.getTipo() != 1 && dino.getTipo() != 2){
-                System.out.println("Tipo de dinossauro inválido. Digite 1 para carnivoros e 2 para herbivoros. Tente novamente.");
-                return false;
-            }
-
-            if(dino.getCategoria() != 1 && dino.getCategoria() != 2 && dino.getCategoria() != 3){ //categoria errada 
-                System.out.println("Categoria de dinossauro inválido. Digite 1 para PP, 2 para MP e 3 para GP. Tente novamente.");
-                return false;
-            }
-
-            if(dino.getPeso() <= 0.0){ //Peso negativo 
-                System.out.println("Peso inválido. ");
-                return false;
-            }
-            
-            if(dino.getVelocidade() <= 0.0){ //Velocidade Negativa
-                System.out.println("Velocidade inválida. ");
-                return false; 
-            }
-            
             this.ListaDinossauros[proxPosicao] = dino;
             this.proxPosicao++;
             System.out.println("Sucesso! Dinossauro adicionado!");
@@ -222,8 +190,6 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         }
         
             
-        
-    
     
         /*Relatório “Dá tempo de fugir?”:
         Esse relatório, devido aos últimos acidentes, é considerado de extrema importância.
@@ -236,28 +202,57 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
     public Dinossauro[] relatorioTop10(){
         /*Relatório “Top 10 mais velozes”:
-    Escreva um método que retorna 
-    um vetor contendo os 10 dinossauros mais velozes ordenados 
-    em ordem decrescente de velocidade (maior primeiro).*/
-        Dinossauro oi [] = new Dinossauro [10];
-        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
-        return oi;
+    Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
+        Dinossauro top10 [] = new Dinossauro [10];
+        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros  
+
+        return top10;
     }
 
-    
-    public boolean verificaId (int id){
-        for(int i = 0; i < proxPosicao; i++){
-            //System.out.println("A ID 1 é : " + dino.getId());
-            if(id == ListaDinossauros[i].getId()){//ja tem aquela id 
-                System.out.println("Já existe um dinossauro com esse numero de identificacao. Tente novamente com outro ID.");
-                return false; 
-            } 
+    public boolean verificaEntradaPositiva(double valor){
+
+        if(valor <= 0){
+            System.out.println("Valor inválido. Digite uma valor maior do que 0. ");
+            return false;
+        } else{
+            return true;
         }
-        
-        return true; 
-
     }
 
+    public boolean verificaTipo(int tipo){
+        if(tipo != 1 && tipo != 2){
+            System.out.println("Tipo de dinossauro inválido. Digite 1 para carnivoros e 2 para herbivoros. Tente novamente.");
+            return false;
+        } else{
+            return true;
+        }
+    }
+
+    public boolean verificaCategoria(int categoria){
+        if (categoria != 1 && categoria != 2 && categoria != 3){ //categoria errada 
+            System.out.println("Categoria de dinossauro inválido. Digite 1 para PP, 2 para MP e 3 para GP. Tente novamente.");
+            return false;
+        } else{
+            return true;
+        }
+    }
   
+    public Dinossauro[] getListaDinossauros(){
+        return this.ListaDinossauros;
+    }
+
+    public void imprimeLista(){
+        for(int i = 0; i < proxPosicao; i++){
+            System.out.println(this.ListaDinossauros[i]);
+            
+        }
+         
+    }
+
+
+    public String toString(){
+        return (this.ListaDinossauros.toString());
+    
+    }
 
 }
