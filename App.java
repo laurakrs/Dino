@@ -166,6 +166,11 @@ public class App
                         System.out.println(" " + vetorOrdenado[i]);  
                   }  
 
+                  System.out.println("Vetor antigo : ");
+                  for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
+                     System.out.println(" " + cadastroDinossauro1.getListaDinossauros()[i]);  
+               }  
+
                      //CadastroDinossauro1.relatorioTop10();
                      check2 = false;
                      break;
