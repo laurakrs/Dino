@@ -204,10 +204,48 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         /*Relatório “Top 10 mais velozes”:
     Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
         Dinossauro top10 [] = new Dinossauro [10];
-        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros  
+        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
+
+            
 
         return top10;
     }
+
+    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
+        Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
+
+        vetorNovo = vetor; 
+
+        int esq = esquerda;
+        int dir = direita; 
+        double pivo = vetorNovo[(esq + dir) / 2].getVelocidade();  
+        Dinossauro troca;  
+  
+        while (esq <= dir) {  
+            while (vetorNovo[esq].getVelocidade() > pivo) {  
+                esq = esq + 1;  
+            }  
+            while (vetorNovo[dir].getVelocidade() < pivo) {  
+                dir = dir - 1;  
+            }  
+            if (esq <= dir) {  
+                troca = vetorNovo[esq];  
+                vetorNovo[esq] = vetorNovo[dir];  
+                vetorNovo[dir] = troca;  
+                esq = esq + 1;  
+                dir = dir - 1;  
+            }  
+        }  
+        if (dir > esquerda)  
+            quickSort(vetorNovo, esquerda, dir);  
+  
+        if (esq < direita)  
+            quickSort(vetorNovo, esq, direita);  
+
+        return vetorNovo;     
+    }
+          
+ 
 
     public boolean verificaEntradaPositiva(double valor){
 
@@ -239,6 +277,10 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
   
     public Dinossauro[] getListaDinossauros(){
         return this.ListaDinossauros;
+    }
+
+    public int getProxPosicao(){
+        return this.proxPosicao;
     }
 
     public void imprimeLista(){

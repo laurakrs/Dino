@@ -13,8 +13,8 @@ public class App
 
    CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro(); 
 
-   Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 20.0); 
-   Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 25.0); 
+   Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0); 
+   Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 35.0); 
    Dinossauro dino3 = new Dinossauro(3, "Laura", 2, 2, 30.0, 30.0); 
 
    cadastroDinossauro1.adicionarDinossauro(dino1);
@@ -28,6 +28,9 @@ public class App
 
 
    cadastroDinossauro1.imprimeLista();
+
+
+
    
    while (check){
    System.out.println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio \n3 - Sair");
@@ -153,11 +156,21 @@ public class App
                      //cadastroDinossauro1.relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker);
                      check2 = false;
                      break;
+
                   case "5": //top 10
-                     //CadastroDinossauro.relatorioTop10();
+                  //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
+                  Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
+                  vetorOrdenado = cadastroDinossauro1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);  
+                  System.out.println("\n Vetor Ordenado");
+                  for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
+                        System.out.println(" " + vetorOrdenado[i]);  
+                  }  
+
+                     //CadastroDinossauro1.relatorioTop10();
                      check2 = false;
                      break;
-                  case "6": 
+
+                  case "6": //voltar
                      check2 = false;
                      check = true;
                      continue;
