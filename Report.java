@@ -21,21 +21,21 @@ public class Report{
        int herbivorosGP = 0;
 
 
-       for(int i = 0; i < this.cadastro.getProxPosicao(); i++){ //Nossa que confusao
+       for(int i = 0; i < this.cadastro.getProxPosicao(); i++){ //Nossa que confusao mas funcionou!!!!
            if(this.cadastro.getListaDinossauros()[i].getCategoria() == 1){ //Pequeno porte
                if(this.cadastro.getListaDinossauros()[i].getTipo() == 1){//carnivoro
                    carnivorosPP++;
                } else{
                    herbivorosPP++;//herbivoro
                }
-           } else if(ListaDinossauros[i].getCategoria() == 2){//Medio porte
-               if(ListaDinossauros[i].getTipo() == 1){//carnivoro
+           } else if(this.cadastro.getListaDinossauros()[i].getCategoria() == 2){//Medio porte
+               if(this.cadastro.getListaDinossauros()[i].getTipo() == 1){//carnivoro
                    carnivorosMP++;
                } else{
                    herbivorosMP++;//herbivoro
                }
            } else{// 3 Grande Porte
-               if(ListaDinossauros[i].getTipo() == 1){//carnivoro
+               if(this.cadastro.getListaDinossauros()[i].getTipo() == 1){//carnivoro
                    carnivorosGP++;
                } else{
                    herbivorosGP++;//herbivoro

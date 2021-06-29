@@ -137,8 +137,10 @@ public class App
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //QTD de animais de cada tipo e categoria
-                     System.out.println(cadastroDinossauro1.relatorioQtdAnimais()); 
-                     continue;
+                     //System.out.println(cadastroDinossauro1.relatorioQtdAnimais()); DECIDIR!
+                     System.out.println(report1.relatorioQtdAnimais());
+                     running2 = false;
+                     break;
                   case "2": //Peso pesado
                      int tipoPesado;
                      int categoriaPesado; 
