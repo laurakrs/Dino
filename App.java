@@ -6,12 +6,13 @@ public class App
    public static void main(String args[]){
    
    Scanner in = new Scanner(System.in);
-   boolean check = true;
-   boolean check2 = true;
+   boolean running = true;
+   boolean running2 = true;
    String opcao1; 
    String opcao2;
 
    CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro(); 
+   Report report1 = new Report(cadastroDinossauro1); //se for assim acho que tem que inicializar um report e associá-lo ao cadastro né :(
 
    Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0); 
    Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 35.0); 
@@ -32,13 +33,13 @@ public class App
 
 
    
-   while (check){
+   while (running){
    System.out.println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio \n3 - Sair");
       opcao1 = in.nextLine(); //ver se tem que ser String mesmo. Vamos pedir alguma String depois?
       switch(opcao1){
          case "1"://Menu de cadastros 
-            check2 = true; 
-            while(check2){
+            running2 = true; 
+            while(running2){
                System.out.println("\nMenu de cadastros: \nEntre com a opcao desejada:");
                System.out.println("1 - Adicionar dinossauro \n2 - Pesquisar dinossauro \n3 - Remover dinossauro \n4 - Voltar ");
                opcao2 = in.nextLine();
@@ -96,10 +97,10 @@ public class App
                      confereAdicionaDino = false;
                      cadastroDinossauro1.imprimeLista();
 
-                     break;
-                     }
                      
-                    continue;
+                     }
+                     running2 = false; //queremos voltar pro menu geral ou pro menu de cadastros
+                    break;
                      
                   case "2": //Pesquisar dino
                      int search_id = 0;
@@ -107,7 +108,7 @@ public class App
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
                      search_id = Integer.parseInt(in.nextLine());
                      System.out.println(cadastroDinossauro1.pesquisarDinossauro(search_id));  
-                     check2 = false;
+                     //check2 = false;
                      break;
 
                   case "3": //Remover dino
@@ -118,8 +119,7 @@ public class App
                      break; 
 
                   case "4": //Voltar - nao funciona
-                     check2 = false;
-                     check = true;
+                     running2 = false;
                      continue;
 
                   default: 
@@ -127,12 +127,12 @@ public class App
                      continue;
                }
          }
-            check2 = false;
+            //check2 = false;
             continue;
 
          case "2": //Menu de relatorios
-            check2 = true;
-            while(check2) {
+            running2 = true;
+            while(running2) {
                System.out.println("Menu de relatorios: \nEntre com a opcao desejada: \n1 - Quantidade de animais de cada tipo e categoria \n2 - Peso Pesado \n3 - Quantidade de carne para carnívoros \n4 - Dá tempo de fugir? \n5 - Top 10 mais velozes \n6 - Voltar");
                opcao2 = in.nextLine();
                switch(opcao2){
@@ -147,14 +147,14 @@ public class App
                      System.out.println("Qual é a categoria? 1 - PP; 2 - MP; 3 - GP");
                      categoriaPesado = Integer.parseInt(in.nextLine());
                      System.out.println(cadastroDinossauro1.relatorioPesoPesado(tipoPesado, categoriaPesado));
-                     check2 = false; // voltaremos pro menu?
+                     //check2 = false; // voltaremos pro menu?
                      break;
                   case "3": //QTD de carne
                      System.out.println(cadastroDinossauro1.relatorioQtdDeCarne());
                      continue; 
                   case "4": //tempo de fugir
                      //cadastroDinossauro1.relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker);
-                     check2 = false;
+                     //check2 = false;
                      break;
 
                   case "5": //top 10
@@ -172,12 +172,12 @@ public class App
                }  
 
                      //CadastroDinossauro1.relatorioTop10();
-                     check2 = false;
+                     //check2 = false;
                      break;
 
                   case "6": //voltar
-                     check2 = false;
-                     check = true;
+                     running2 = false;
+                     //check = true;
                      continue;
                   default: 
                      System.out.println("Entrada invalida. Tente novamente.");
@@ -189,7 +189,7 @@ public class App
 
          case "3": //Sair
             System.out.println("Saindo...");
-            check = false;
+            running = false;
             break;
 
          default:
