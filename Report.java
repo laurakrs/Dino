@@ -56,11 +56,11 @@ public class Report{
        int idMaisPesado = 0; 
        double maiorPeso = 0.0; 
 
-       for(int i = 0; i < proxPosicao ; i++){
-           if(ListaDinossauros[i].getTipo() == tipo){
-               if(ListaDinossauros[i].getCategoria() == categoria){
-                   if(ListaDinossauros[i].getPeso() > maiorPeso){
-                       maiorPeso = ListaDinossauros[i].getPeso();
+       for(int i = 0; i < this.cadastro.getProxPosicao() ; i++){
+           if(this.cadastro.getListaDinossauros()[i].getTipo() == tipo){
+               if(this.cadastro.getListaDinossauros()[i].getCategoria() == categoria){
+                   if(this.cadastro.getListaDinossauros()[i].getPeso() > maiorPeso){
+                       maiorPeso = this.cadastro.getListaDinossauros()[i].getPeso();
                        idMaisPesado = i; 
                    } 
                }
@@ -71,7 +71,7 @@ public class Report{
            System.out.println("Ainda não há dinossauros desse tipo e categoria.");
            return null;
        } else {
-           return ListaDinossauros[idMaisPesado]; 
+           return this.cadastro.getListaDinossauros()[idMaisPesado]; 
        }
    } 
 
@@ -86,14 +86,14 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
        double totalCarne = 0.0; 
 
-       for(int i = 0; i < proxPosicao; i++){
-           if(ListaDinossauros[i].getTipo() == 1){//carnivoro
-               if(ListaDinossauros[i].getCategoria() == 1){ //pequeno porte
-                   totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.10 * 30);
-               } else if(ListaDinossauros[i].getCategoria() == 2){//Medio porte
-                   totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.15 * 30);
+       for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
+           if(this.cadastro.getListaDinossauros()[i].getTipo() == 1){//carnivoro
+               if(this.cadastro.getListaDinossauros()[i].getCategoria() == 1){ //pequeno porte
+                   totalCarne = totalCarne + (this.cadastro.getListaDinossauros()[i].getPeso() * 0.10 * 30);
+               } else if(this.cadastro.getListaDinossauros()[i].getCategoria() == 2){//Medio porte
+                   totalCarne = totalCarne + (this.cadastro.getListaDinossauros()[i].getPeso() * 0.15 * 30);
                } else{// 3 Grande Porte
-                   totalCarne = totalCarne + (ListaDinossauros[i].getPeso() * 0.20 * 30);
+                   totalCarne = totalCarne + (this.cadastro.getListaDinossauros()[i].getPeso() * 0.20 * 30);
                }
            }
        }
@@ -113,11 +113,11 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
        System.out.println("Escolha um dinossauro abaixo pelo ID:");
 
-       for( i = 0; i < proxPosicao ; i++){
-              System.out.println(ListaDinossauros);
+       for( i = 0; i < this.cadastro.getProxPosicao() ; i++){
+              System.out.println(this.cadastro.getListaDinossauros()[i]);
            }
 
-       tempoDinossauro = (distanciaDinoBunker / (ListaDinossauros[i].getVelocidade()));
+       tempoDinossauro = (distanciaDinoBunker / (this.cadastro.getListaDinossauros()[i].getVelocidade()));
        tempoPessoa = (distanciaPessoaBunker / 20);
 
            if (tempoPessoa > tempoDinossauro) {
@@ -157,9 +157,13 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
        
-       Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
 
-       vetorNovo = vetor; 
+    Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
+    //precisamos criar uma cópia do vetor 
+    for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
+       vetorNovo[i] = vetor[i];  
+    }
+       
 
        int esq = esquerda;
        int dir = direita; 
