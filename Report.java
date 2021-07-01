@@ -103,21 +103,14 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
    }
 
-   public boolean relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu, int i){
+   public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu, int i){
       
        double tempoDinossauro = 0.0;
        double tempoPessoa = 0.0;
 
-       distanciaDinoBunker = 0.0; //vamos pedir pro usuário essas infos?
-       distanciaPessoaBunker = 0.0;
+       // COMO PUXAR O ID PRA CA? E A VELOCIDADE?   
 
-       System.out.println("Escolha um dinossauro abaixo pelo ID:");
-
-       for( i = 0; i < this.cadastro.getProxPosicao() ; i++){
-              System.out.println(this.cadastro.getListaDinossauros()[i]);
-           }
-
-       tempoDinossauro = (distanciaDinoBunker / (this.cadastro.getListaDinossauros()[i].getVelocidade()));
+       tempoDinossauro = (distanciaDinoBunker / (this.cadastro.getListaDinossauros()[i].getVelocidade())); //PUXAR DISTANCIA DINOBUNKER E PESSOABUNKER
        tempoPessoa = (distanciaPessoaBunker / 20);
 
            if (tempoPessoa > tempoDinossauro) {

@@ -155,6 +155,24 @@ public class App
                      System.out.println(cadastroDinossauro1.relatorioQtdDeCarne());
                      continue; 
                   case "4": //tempo de fugir
+
+                  int idDino;
+                  double distanciaDinoBunker = 0;
+                  double distanciaPessoaBunker = 0;
+                  
+                  System.out.println("Bem vindo ao Da tempo de fugir?. Escolha um dos dinossauros abaixo inserindo o seu ID:\n");
+                  cadastroDinossauro1.imprimeLista();
+                  idDino = Integer.parseInt(in.nextLine());
+
+                  System.out.println("Qual é distância (em KM) do dinossauro até o bunker? \n");
+                  distanciaDinoBunker = Double.parseDouble(in.nextLine());
+                  
+                  System.out.println("Qual é distância (em KM) da pessoa até o bunker? \n");
+                  distanciaPessoaBunker = Double.parseDouble(in.nextLine());
+
+                  //System.out.println(cadastroDinossauro1.relatorioDaTempoDeFugir);
+
+
                      //cadastroDinossauro1.relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker);
                      //check2 = false;
                      break;
