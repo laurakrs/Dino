@@ -216,7 +216,10 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         
         Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
 
-        vetorNovo = vetor; 
+        for(int i = 0; i < proxPosicao; i++){
+            vetorNovo[i] = vetor[i];  
+         }
+
 
         int esq = esquerda;
         int dir = direita; 
