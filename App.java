@@ -173,11 +173,7 @@ public class App
                   System.out.println("Qual é distância (em KM) da pessoa até o bunker? \n");
                   distanciaPessoaBunker = Double.parseDouble(in.nextLine());
 
-                  //System.out.println(cadastroDinossauro1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
-
-
-                     //cadastroDinossauro1.relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker);
-                     //check2 = false;
+                  System.out.println(report1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
                      break;
 
                   case "5": //top 10

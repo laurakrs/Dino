@@ -103,13 +103,14 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
    }
 
-   public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu){
+   public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker){
       
        double tempoDinossauro = 0.0;
        double tempoPessoa = 0.0;
        double veloDino = 0.0;
+       boolean fugiu = true;
 
-       // COMO PUXAR O ID PRA CA? E A VELOCIDADE?   
+       
        for(int i=0; i < this.cadastro.getProxPosicao(); i++){
             if(this.cadastro.getListaDinossauros()[i].getId() == idDino){
                 veloDino = this.cadastro.getListaDinossauros()[i].getVelocidade();
@@ -117,7 +118,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         }
     }
 
-       tempoDinossauro = (distanciaDinoBunker / veloDino); //PUXAR DISTANCIA DINOBUNKER E PESSOABUNKER
+       tempoDinossauro = (distanciaDinoBunker / veloDino);
        tempoPessoa = (distanciaPessoaBunker / 20);
 
            if (tempoPessoa > tempoDinossauro) {
