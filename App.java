@@ -11,6 +11,8 @@ public class App
    String opcao1; 
    String opcao2;
 
+   
+
    CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro(); 
    Report report1 = new Report(cadastroDinossauro1); //se for assim acho que tem que inicializar um report e associá-lo ao cadastro né :(
 
@@ -35,7 +37,7 @@ public class App
    
    while (running){
    System.out.println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio \n3 - Sair");
-      opcao1 = in.nextLine(); //ver se tem que ser String mesmo. Vamos pedir alguma String depois?
+      opcao1 = in.nextLine(); 
       switch(opcao1){
          case "1"://Menu de cadastros 
             running2 = true; 
@@ -64,6 +66,7 @@ public class App
                         System.out.println("Já existe um dinossauro com esse ID. Tente novamente. "); 
                         continue;
                      }
+
                      System.out.println("Nome da raca: "); //String
                      nome = in.nextLine(); 
 
@@ -108,7 +111,6 @@ public class App
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
                      search_id = Integer.parseInt(in.nextLine());
                      System.out.println(cadastroDinossauro1.pesquisarDinossauro(search_id));  
-                     //check2 = false;
                      break;
 
                   case "3": //Remover dino
@@ -118,7 +120,7 @@ public class App
                      cadastroDinossauro1.imprimeLista();
                      break; 
 
-                  case "4": //Voltar - nao funciona
+                  case "4": //Voltar
                      running2 = false;
                      continue;
 
@@ -148,12 +150,13 @@ public class App
                      tipoPesado = Integer.parseInt(in.nextLine());
                      System.out.println("Qual é a categoria? 1 - PP; 2 - MP; 3 - GP");
                      categoriaPesado = Integer.parseInt(in.nextLine());
-                     System.out.println(cadastroDinossauro1.relatorioPesoPesado(tipoPesado, categoriaPesado));
+                     System.out.println("O dinossauro mais pesado é" + cadastroDinossauro1.relatorioPesoPesado(tipoPesado, categoriaPesado));
                      //check2 = false; // voltaremos pro menu?
                      break;
                   case "3": //QTD de carne
-                     System.out.println(cadastroDinossauro1.relatorioQtdDeCarne());
+                     System.out.println("A qtd de carne necessaura é" + cadastroDinossauro1.relatorioQtdDeCarne());
                      continue; 
+
                   case "4": //tempo de fugir
 
                   int idDino;
@@ -170,7 +173,7 @@ public class App
                   System.out.println("Qual é distância (em KM) da pessoa até o bunker? \n");
                   distanciaPessoaBunker = Double.parseDouble(in.nextLine());
 
-                  //System.out.println(cadastroDinossauro1.relatorioDaTempoDeFugir);
+                  //System.out.println(cadastroDinossauro1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
 
 
                      //cadastroDinossauro1.relatorioDaTempoDeFugir(int id, double distanciaDinoBunker, double distanciaPessoaBunker);
@@ -180,7 +183,7 @@ public class App
                   case "5": //top 10
                   //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = cadastroDinossauro1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);  
+                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);  
                   System.out.println("\n Vetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                         System.out.println(" " + vetorOrdenado[i]);  

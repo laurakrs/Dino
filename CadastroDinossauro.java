@@ -207,9 +207,6 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
         Dinossauro top10 [] = new Dinossauro [10];
         //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
-
-            
-
         return top10;
     }
 

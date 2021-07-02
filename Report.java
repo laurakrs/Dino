@@ -103,14 +103,21 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
    }
 
-   public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu, int i){
+   public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker,boolean fugiu){
       
        double tempoDinossauro = 0.0;
        double tempoPessoa = 0.0;
+       double veloDino = 0.0;
 
        // COMO PUXAR O ID PRA CA? E A VELOCIDADE?   
+       for(int i=0; i < this.cadastro.getProxPosicao(); i++){
+            if(this.cadastro.getListaDinossauros()[i].getId() == idDino){
+                veloDino = this.cadastro.getListaDinossauros()[i].getVelocidade();
+                
+        }
+    }
 
-       tempoDinossauro = (distanciaDinoBunker / (this.cadastro.getListaDinossauros()[i].getVelocidade())); //PUXAR DISTANCIA DINOBUNKER E PESSOABUNKER
+       tempoDinossauro = (distanciaDinoBunker / veloDino); //PUXAR DISTANCIA DINOBUNKER E PESSOABUNKER
        tempoPessoa = (distanciaPessoaBunker / 20);
 
            if (tempoPessoa > tempoDinossauro) {
@@ -150,43 +157,42 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
        
-
+ 
     Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
-    //precisamos criar uma cópia do vetor 
+
     for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
-       vetorNovo[i] = vetor[i];  
-    }
-       
+        vetorNovo[i] = vetor[i];  
+     }
 
-       int esq = esquerda;
-       int dir = direita; 
-       double pivo = vetorNovo[(esq + dir) / 2].getVelocidade();  
-       Dinossauro troca;  
- 
-       while (esq <= dir) {  
-           while (vetorNovo[esq].getVelocidade() > pivo) {  
-               esq = esq + 1;  
-           }  
-           while (vetorNovo[dir].getVelocidade() < pivo) {  
-               dir = dir - 1;  
-           }  
-           if (esq <= dir) {  
-               troca = vetorNovo[esq];  
-               vetorNovo[esq] = vetorNovo[dir];  
-               vetorNovo[dir] = troca;  
-               esq = esq + 1;  
-               dir = dir - 1;  
-           }  
-       }  
-       if (dir > esquerda)  
-           quickSort(vetorNovo, esquerda, dir);  
- 
-       if (esq < direita)  
-           quickSort(vetorNovo, esq, direita);  
 
-       return vetorNovo;     
-   }
-         
+    int esq = esquerda;
+    int dir = direita; 
+    double pivo = vetorNovo[(esq + dir) / 2].getVelocidade();  
+    Dinossauro troca;  
+
+    while (esq <= dir) {  
+        while (vetorNovo[esq].getVelocidade() > pivo) {  
+            esq = esq + 1;  
+        }  
+        while (vetorNovo[dir].getVelocidade() < pivo) {  
+            dir = dir - 1;  
+        }  
+        if (esq <= dir) {  
+            troca = vetorNovo[esq];  
+            vetorNovo[esq] = vetorNovo[dir];  
+            vetorNovo[dir] = troca;  
+            esq = esq + 1;  
+            dir = dir - 1;  
+        }  
+    }  
+    if (dir > esquerda)  
+        quickSort(vetorNovo, esquerda, dir);  
+
+    if (esq < direita)  
+        quickSort(vetorNovo, esq, direita);  
+
+    return vetorNovo;     
+}
 
 
 
