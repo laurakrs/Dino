@@ -31,6 +31,7 @@ public class App
 
 
    cadastroDinossauro1.imprimeLista();
+   //System.out.println(cadastroDinossauro1.getListaDinossauros()[1].toString());
 
 
 
@@ -179,7 +180,7 @@ public class App
                   case "5": //top 10
                   //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);  
+                  vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
                   System.out.println("\n Vetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                         System.out.println(" " + vetorOrdenado[i]);  

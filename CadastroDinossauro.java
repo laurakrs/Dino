@@ -202,14 +202,19 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         A fórmula para o cálculo do tempo é tempo = distância/velocidade. */
     
 
-    public Dinossauro[] relatorioTop10(){
+    public Dinossauro[] relatorioTop10(Dinossauro vetor[], int tamanho){
         /*Relatório “Top 10 mais velozes”:
     Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
-        Dinossauro top10 [] = new Dinossauro [10];
+    
+        Dinossauro top10 [] = sort(vetor, tamanho);
         //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
+        
         return top10;
     }
 
+    public Dinossauro [] sort(Dinossauro vetor[], int tamanho){
+        return quickSort (vetor, 0, tamanho);
+    } 
     public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
         
         Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
@@ -239,13 +244,14 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
                 dir = dir - 1;  
             }  
         }  
-        if (dir > esquerda)  
+        if (dir > esquerda)  {
             quickSort(vetorNovo, esquerda, dir);  
-  
-        if (esq < direita)  
+        
+        }else if (esq < direita) {
             quickSort(vetorNovo, esq, direita);  
-
-        return vetorNovo;     
+        }   
+        
+        return vetorNovo;    
     }
           
  
