@@ -14,6 +14,16 @@ public class App
    
 
    CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro(); 
+  
+   Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0); 
+   Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 35.0); 
+   Dinossauro dino3 = new Dinossauro(3, "Laura", 2, 2, 30.0, 30.0); 
+
+   cadastroDinossauro1.adicionarDinossauro(dino1);
+   cadastroDinossauro1.adicionarDinossauro(dino2);
+   cadastroDinossauro1.adicionarDinossauro(dino3);
+ 
+   
    Report report1 = new Report(cadastroDinossauro1); //se for assim acho que tem que inicializar um report e associá-lo ao cadastro né :(
 
    Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0); 

@@ -13,12 +13,11 @@ public class CadastroDinossauro{
     private Dinossauro [] ListaDinossauros;
     private int proxPosicao; 
 
-//precisa de constutor será?
 
     public CadastroDinossauro(){
         this.ListaDinossauros = new Dinossauro [TOTAL_DINOS];
         this.proxPosicao = 0;
-        //this.report = TALVEZ!
+       
     }
 
     public boolean adicionarDinossauro(Dinossauro dino){ 
