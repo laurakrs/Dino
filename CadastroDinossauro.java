@@ -1,4 +1,3 @@
-import jdk.javadoc.internal.tool.resources.javadoc_zh_CN;
 
 /*Implemente uma classe CadastroDinossauro que armazena uma lista de dinossauros na forma de
 um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguintes métodos */
