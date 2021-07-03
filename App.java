@@ -194,7 +194,7 @@ public class App
                }  
 
                      //CadastroDinossauro1.relatorioTop10();
-                     //check2 = false;
+                     running2 = false;
                      break;
 
                   case "6": //voltar

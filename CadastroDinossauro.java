@@ -217,9 +217,9 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     } 
     public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
         
-        Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
+        Dinossauro vetorNovo[]  = new Dinossauro[this.proxPosicao];
 
-        for(int i = 0; i < proxPosicao; i++){
+        for(int i = 0; i < this.proxPosicao; i++){
             vetorNovo[i] = vetor[i];  
          }
 
@@ -243,7 +243,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
                 esq = esq + 1;  
                 dir = dir - 1;  
             }  
-        }  
+        }
         if (dir > esquerda)  {
             quickSort(vetorNovo, esquerda, dir);  
         
