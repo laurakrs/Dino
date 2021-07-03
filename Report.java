@@ -151,7 +151,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
        Dinossauro top10 [] = new Dinossauro [10];
        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
 
-           
+        
 
        return top10;
    }
@@ -159,9 +159,9 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
        
  
-    Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
+    Dinossauro vetorNovo[]  = new Dinossauro[cadastro.getProxPosicao()];
 
-    for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
+    for(int i = 0; i < cadastro.getProxPosicao(); i++){
         vetorNovo[i] = vetor[i];  
      }
 
@@ -194,8 +194,6 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
 
     return vetorNovo;     
 }
-
-
 
 
 }
