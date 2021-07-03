@@ -183,6 +183,8 @@ public class App
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
                   vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);
                   //vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
+                 
+                 
                   System.out.println("\n Vetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                         System.out.println(" " + vetorOrdenado[i]);  

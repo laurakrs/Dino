@@ -159,41 +159,58 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
        
  
-    Dinossauro vetorNovo[]  = new Dinossauro[cadastro.getProxPosicao()];
+    Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
 
-    for(int i = 0; i < cadastro.getProxPosicao(); i++){
-        vetorNovo[i] = vetor[i];  
-     }
+        for (int i = 0; i < this.cadastro.getProxPosicao(); i++) {  
+            vetorNovo[i] = vetor[i];
+        }
 
+        int esq = esquerda;
+        int dir = direita;
+        Dinossauro pivo = vetorNovo[this.cadastro.getProxPosicao()/2];
+        Dinossauro troca;
 
-    int esq = esquerda;
-    int dir = direita; 
-    double pivo = vetorNovo[(esq + dir) / 2].getVelocidade();  
-    Dinossauro troca;  
+        System.out.println("PIVO: " + pivo);
+        System.out.println("esq: " + esq);
+        System.out.println("dir: " + dir);
 
-    while (esq <= dir) {  
-        while (vetorNovo[esq].getVelocidade() > pivo) {  
-            esq = esq + 1;  
-        }  
-        while (vetorNovo[dir].getVelocidade() < pivo) {  
-            dir = dir - 1;  
-        }  
-        if (esq <= dir) {  
-            troca = vetorNovo[esq];  
-            vetorNovo[esq] = vetorNovo[dir];  
-            vetorNovo[dir] = troca;  
-            esq = esq + 1;  
-            dir = dir - 1;  
-        }  
-    }  
-    if (dir > esquerda)  
-        quickSort(vetorNovo, esquerda, dir);  
+        while (esq <= dir){
+            while(vetorNovo[esq].getVelocidade() > pivo.getVelocidade()){
+                System.out.println("PIVO: " + pivo.getVelocidade());
+                System.out.println("esq: " + esq);
+                System.out.println("V esq: " + vetorNovo[esq].getVelocidade());
+                System.out.println("dir: " + dir);
+                System.out.println("V dir: " + vetorNovo[dir].getVelocidade());
 
-    if (esq < direita)  
-        quickSort(vetorNovo, esq, direita);  
+                esq = esq + 1;
+            }
+            while (vetorNovo[dir].getVelocidade() < pivo.getVelocidade()){
+                System.out.println("PIVO: " + pivo.getVelocidade());
+                System.out.println("esq: " + esq);
+                System.out.println("V esq: " + vetorNovo[esq].getVelocidade());
+                System.out.println("dir: " + dir);
+                System.out.println("V dir: " + vetorNovo[dir].getVelocidade());
 
-    return vetorNovo;     
-}
+                dir = dir -1;
+            }
+
+            if(esq <= dir){
+                troca = vetorNovo[esq];
+                vetorNovo[esq] = vetorNovo[dir];
+                vetorNovo[dir] = troca;
+                esq = esq + 1;
+                dir = dir -1;
+            }
+        }
+
+        if(dir > esquerda)
+            quickSort(vetorNovo, esquerda, dir);
+        if(esq < direita)
+            quickSort(vetorNovo, esq, direita);
+    
+        return vetorNovo; 
+
+        }   
 
 
 }
