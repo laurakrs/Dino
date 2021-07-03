@@ -152,7 +152,7 @@ public class App
                      System.out.println("Qual é a categoria? 1 - PP; 2 - MP; 3 - GP");
                      categoriaPesado = Integer.parseInt(in.nextLine());
                      System.out.println("O dinossauro mais pesado é" + cadastroDinossauro1.relatorioPesoPesado(tipoPesado, categoriaPesado));
-                     //check2 = false; // voltaremos pro menu?
+                     running2 = false; 
                      break;
                   case "3": //QTD de carne
                      System.out.println("A qtd de carne necessaura é" + cadastroDinossauro1.relatorioQtdDeCarne());
@@ -175,12 +175,14 @@ public class App
                   distanciaPessoaBunker = Double.parseDouble(in.nextLine());
 
                   System.out.println(report1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
-                     break;
+                  
+               break;
 
                   case "5": //top 10
                   //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
+                  vetorOrdenado = cadastroDinossauro1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);
+                  //vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
                   System.out.println("\n Vetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                         System.out.println(" " + vetorOrdenado[i]);  
