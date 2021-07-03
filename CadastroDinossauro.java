@@ -1,3 +1,5 @@
+import jdk.javadoc.internal.tool.resources.javadoc_zh_CN;
+
 /*Implemente uma classe CadastroDinossauro que armazena uma lista de dinossauros na forma de
 um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguintes métodos */
 
@@ -213,16 +215,16 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     }
 
     public Dinossauro [] sort(Dinossauro vetor[], int tamanho){
-        return quickSort (vetor, 0, tamanho);
+        Dinossauro vetorNovo[]  = new Dinossauro[proxPosicao];
+
+        for(int i = 0; i < proxPosicao; i++){
+            vetorNovo[i] = vetor[i];
+        }
+
+        return quickSort (vetorNovo, 0, tamanho);
     } 
-    public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
-        
-        Dinossauro vetorNovo[]  = new Dinossauro[this.proxPosicao];
 
-        for(int i = 0; i < this.proxPosicao; i++){
-            vetorNovo[i] = vetor[i];  
-         }
-
+    public Dinossauro[] quickSort (Dinossauro vetorNovo[], int esquerda, int direita){
 
         int esq = esquerda;
         int dir = direita; 
@@ -243,17 +245,15 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
                 esq = esq + 1;  
                 dir = dir - 1;  
             }  
-        }
-        if (dir > esquerda)  {
+        }  
+        if (dir > esquerda)  
             quickSort(vetorNovo, esquerda, dir);  
-        
-        }else if (esq < direita) {
+  
+        if (esq < direita)  
             quickSort(vetorNovo, esq, direita);  
-        }   
-        
-        return vetorNovo;    
+
+        return vetorNovo;     
     }
-          
  
 
     public boolean verificaEntradaPositiva(double valor){

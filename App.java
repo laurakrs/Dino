@@ -181,7 +181,7 @@ public class App
                   case "5": //top 10
                   //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);
+                  vetorOrdenado = cadastroDinossauro1.sort(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);
                   //vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
                  
                  
