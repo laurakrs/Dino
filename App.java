@@ -166,20 +166,36 @@ public class App {
 
                      case "4": // tempo de fugir
 
-                        int idDino;
+                        int idDino = 0;
                         double distanciaDinoBunker = 0;
                         double distanciaPessoaBunker = 0;
+                        boolean checkEntradas = true;
 
+                        while(checkEntradas){
                         System.out.println(
                               "Bem vindo ao Da tempo de fugir?. Escolha um dos dinossauros abaixo inserindo o seu ID:\n");
                         cadastroDinossauro1.imprimeLista();
                         idDino = Integer.parseInt(in.nextLine());
 
+                        if (cadastroDinossauro1.pesquisarDinossauro(idDino) == null) {
+                           System.out.println("Não existe dinossauro com esse Id. Tente novamente.");
+                           continue;
+                        }
+
                         System.out.println("Qual é distância (em km) do dinossauro até o bunker? \n");
                         distanciaDinoBunker = Double.parseDouble(in.nextLine());
+                        if (cadastroDinossauro1.verificaEntradaPositiva(distanciaDinoBunker) == false) {
+                           continue;
+                        }
 
                         System.out.println("Qual é distância (em km) da pessoa até o bunker? \n");
                         distanciaPessoaBunker = Double.parseDouble(in.nextLine());
+                        if (cadastroDinossauro1.verificaEntradaPositiva(distanciaPessoaBunker) == false) {
+                           continue;
+                        }
+                        
+                        checkEntradas = false;
+                     }
 
                         System.out.println("A pessoa conseguiu fugir? "
                               + report1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
