@@ -108,7 +108,7 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
        double tempoDinossauro = 0.0;
        double tempoPessoa = 0.0;
        double veloDino = 0.0;
-       boolean fugiu = true;
+       
 
        
        for(int i=0; i < this.cadastro.getProxPosicao(); i++){
@@ -122,14 +122,11 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
        tempoPessoa = (distanciaPessoaBunker / 20);
 
            if (tempoPessoa > tempoDinossauro) {
-               fugiu = false;
                return false;
            } else if (tempoPessoa < tempoDinossauro) {
-               fugiu = true;
                return true;
             } else {
                System.out.println("O tempo que a pessoa e o dinossauro levam até o bunker é o mesmo.");
-               fugiu = false;
                return false;
            }
        }
@@ -145,72 +142,65 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
        A fórmula para o cálculo do tempo é tempo = distância/velocidade. */
    
 
-   public Dinossauro[] relatorioTop10(){
+   public Dinossauro[] relatorioTop10(Dinossauro vetor[], int tamanho){
        /*Relatório “Top 10 mais velozes”:
         Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
-       Dinossauro top10 [] = new Dinossauro [10];
-       //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
-
-        
-
-       return top10;
-   }
-
-   public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
        
- 
+        Dinossauro topVelozes [] = sort(vetor, tamanho);
+       
+       //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
+               
+        return topVelozes; 
+    }
+
+
+    public Dinossauro [] sort(Dinossauro vetorAntigo[], int tamanho){
+
     Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
 
-        for (int i = 0; i < this.cadastro.getProxPosicao(); i++) {  
-            vetorNovo[i] = vetor[i];
-        }
+    for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
+        vetorNovo[i] = vetorAntigo[i];
+    }
+
+    return quickSort (vetorNovo, 0, tamanho);
+    } 
+
+   public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
+    
 
         int esq = esquerda;
         int dir = direita;
-        Dinossauro pivo = vetorNovo[this.cadastro.getProxPosicao()/2];
+        Dinossauro pivo = vetor[this.cadastro.getProxPosicao()/2];
         Dinossauro troca;
 
-        System.out.println("PIVO: " + pivo);
-        System.out.println("esq: " + esq);
-        System.out.println("dir: " + dir);
-
         while (esq <= dir){
-            while(vetorNovo[esq].getVelocidade() > pivo.getVelocidade()){
-                System.out.println("PIVO: " + pivo.getVelocidade());
-                System.out.println("esq: " + esq);
-                System.out.println("V esq: " + vetorNovo[esq].getVelocidade());
-                System.out.println("dir: " + dir);
-                System.out.println("V dir: " + vetorNovo[dir].getVelocidade());
-
+            while(vetor[esq].getVelocidade() > pivo.getVelocidade()){
                 esq = esq + 1;
             }
-            while (vetorNovo[dir].getVelocidade() < pivo.getVelocidade()){
-                System.out.println("PIVO: " + pivo.getVelocidade());
-                System.out.println("esq: " + esq);
-                System.out.println("V esq: " + vetorNovo[esq].getVelocidade());
-                System.out.println("dir: " + dir);
-                System.out.println("V dir: " + vetorNovo[dir].getVelocidade());
-
+            while (vetor[dir].getVelocidade() < pivo.getVelocidade()){
                 dir = dir -1;
             }
 
             if(esq <= dir){
-                troca = vetorNovo[esq];
-                vetorNovo[esq] = vetorNovo[dir];
-                vetorNovo[dir] = troca;
+                troca = vetor[esq];
+                vetor[esq] = vetor[dir];
+                vetor[dir] = troca;
                 esq = esq + 1;
                 dir = dir -1;
             }
         }
 
         if(dir > esquerda)
-            quickSort(vetorNovo, esquerda, dir);
+            quickSort(vetor, esquerda, dir);
         if(esq < direita)
-            quickSort(vetorNovo, esq, direita);
+            quickSort(vetor, esq, direita);
     
-        return vetorNovo; 
+        return vetor; 
 
         }   
 
 
 }
+
+
+

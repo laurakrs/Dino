@@ -26,15 +26,12 @@ public class App
    cadastroDinossauro1.adicionarDinossauro(dino3);
    
 
-   System.out.println("Bem-vindo ao Jurassic Zoo!");
+   System.out.println("\nBem-vindo ao Jurassic Zoo!");
 
 
    cadastroDinossauro1.imprimeLista();
-   //System.out.println(cadastroDinossauro1.getListaDinossauros()[1].toString());
-
-
-
    
+
    while (running){
    System.out.println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio \n3 - Sair");
       opcao1 = in.nextLine(); 
@@ -102,7 +99,7 @@ public class App
 
                      
                      }
-                     running2 = false; //queremos voltar pro menu geral ou pro menu de cadastros
+                     running2 = false;
                     break;
                      
                   case "2": //Pesquisar dino
@@ -111,6 +108,7 @@ public class App
                      System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja pesquisar? ");
                      search_id = Integer.parseInt(in.nextLine());
                      System.out.println(cadastroDinossauro1.pesquisarDinossauro(search_id));  
+                     running2 = false;
                      break;
 
                   case "3": //Remover dino
@@ -118,6 +116,7 @@ public class App
                      id = Integer.parseInt(in.nextLine());
                      System.out.println(cadastroDinossauro1.removerDinossauro(id));
                      cadastroDinossauro1.imprimeLista();
+                     running2 = false;
                      break; 
 
                   case "4": //Voltar
@@ -129,17 +128,16 @@ public class App
                      continue;
                }
          }
-            //check2 = false;
+
             continue;
 
          case "2": //Menu de relatorios
             running2 = true;
             while(running2) {
-               System.out.println("Menu de relatorios: \nEntre com a opcao desejada: \n1 - Quantidade de animais de cada tipo e categoria \n2 - Peso Pesado \n3 - Quantidade de carne para carnívoros \n4 - Dá tempo de fugir? \n5 - Top 10 mais velozes \n6 - Voltar");
+               System.out.println("\nMenu de relatorios: \nEntre com a opcao desejada: \n1 - Quantidade de animais de cada tipo e categoria \n2 - Peso Pesado \n3 - Quantidade de carne para carnívoros \n4 - Dá tempo de fugir? \n5 - Top 10 mais velozes \n6 - Voltar");
                opcao2 = in.nextLine();
                switch(opcao2){
                   case "1": //QTD de animais de cada tipo e categoria
-                     //System.out.println(cadastroDinossauro1.relatorioQtdAnimais()); DECIDIR!
                      System.out.println(report1.relatorioQtdAnimais());
                      running2 = false;
                      break;
@@ -150,12 +148,13 @@ public class App
                      tipoPesado = Integer.parseInt(in.nextLine());
                      System.out.println("Qual é a categoria? 1 - PP; 2 - MP; 3 - GP");
                      categoriaPesado = Integer.parseInt(in.nextLine());
-                     System.out.println("O dinossauro mais pesado é" + cadastroDinossauro1.relatorioPesoPesado(tipoPesado, categoriaPesado));
+                     System.out.println("O dinossauro mais pesado é" + report1.relatorioPesoPesado(tipoPesado, categoriaPesado));
                      running2 = false; 
                      break;
                   case "3": //QTD de carne
-                     System.out.println("A qtd de carne necessaura é" + cadastroDinossauro1.relatorioQtdDeCarne());
-                     continue; 
+                     System.out.println("A qtd de carne necessaura é" + report1.relatorioQtdDeCarne() + " kg.");
+                     running2 = false;
+                     break; 
 
                   case "4": //tempo de fugir
 
@@ -167,34 +166,29 @@ public class App
                   cadastroDinossauro1.imprimeLista();
                   idDino = Integer.parseInt(in.nextLine());
 
-                  System.out.println("Qual é distância (em KM) do dinossauro até o bunker? \n");
+                  System.out.println("Qual é distância (em km) do dinossauro até o bunker? \n");
                   distanciaDinoBunker = Double.parseDouble(in.nextLine());
                   
-                  System.out.println("Qual é distância (em KM) da pessoa até o bunker? \n");
+                  System.out.println("Qual é distância (em km) da pessoa até o bunker? \n");
                   distanciaPessoaBunker = Double.parseDouble(in.nextLine());
 
-                  System.out.println(report1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
-                  
-               break;
+                  System.out.println("A pessoa conseguiu fugir? " + report1.relatorioDaTempoDeFugir(idDino, distanciaDinoBunker, distanciaPessoaBunker));
+                  running2 = false; 
+                  break;
 
                   case "5": //top 10
-                  //to testando o quicksort aqui e ta funcionandooo!!! so preciso aprender a colocar dentro do top10 
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = cadastroDinossauro1.sort(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);
-                  //vetorOrdenado = cadastroDinossauro1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao()-1);  
-                 
-                 
-                  System.out.println("\n Vetor Ordenado");
+                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(),0, cadastroDinossauro1.getProxPosicao()-1);
+                  
+                  System.out.println("\nVetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                         System.out.println(" " + vetorOrdenado[i]);  
                   }  
 
-                  System.out.println("Vetor antigo : ");
+                  System.out.println("\nVetor antigo: ");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
                      System.out.println(" " + cadastroDinossauro1.getListaDinossauros()[i]);  
-               }  
-
-                     //CadastroDinossauro1.relatorioTop10();
+               }    
                      running2 = false;
                      break;
 
