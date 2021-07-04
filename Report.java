@@ -146,11 +146,13 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         /*Relatório “Top 10 mais velozes”:
     Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
     
-        Dinossauro top10 [] = sort(vetor, tamanho);
+        Dinossauro topVelozes [] = sort(vetor, tamanho);
         //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
         
-        return top10;
+        return topVelozes;
+    
     }
+
 
     public Dinossauro [] sort(Dinossauro vetor[], int tamanho){
         Dinossauro vetorNovo[]  = new Dinossauro[tamanho];
@@ -158,7 +160,9 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
         for(int i = 0; i < tamanho; i++){
             vetorNovo[i] = vetor[i];
         }
-
+        
+        tamanho = tamanho -1; 
+        
         return quickSort (vetorNovo, 0, tamanho);
     } 
 
