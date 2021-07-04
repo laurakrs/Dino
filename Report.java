@@ -147,9 +147,16 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
     Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
     
         Dinossauro topVelozes [] = sort(vetor, tamanho);
+        Dinossauro top10[] = new Dinossauro[10];
         //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
-        
+        if(this.cadastro.getProxPosicao() >= 10){
+            for(int i = 0; i < 10; i++){
+                top10[i] = topVelozes[i];
+            }
+            return top10;
+        }else{
         return topVelozes;
+    }
     
     }
 

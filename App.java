@@ -16,10 +16,22 @@ public class App {
       Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0);
       Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 35.0);
       Dinossauro dino3 = new Dinossauro(3, "Laura", 2, 2, 30.0, 30.0);
+      Dinossauro dino4 = new Dinossauro(4, "Tiranossauro Rex", 1, 1, 10.0, 120.0);
+      Dinossauro dino5 = new Dinossauro(5, "Galinha", 2, 3, 15.0, 70.0);
+      Dinossauro dino6 = new Dinossauro(6, "Laura", 2, 2, 30.0, 80.0);
+      Dinossauro dino7 = new Dinossauro(7, "Laura", 2, 2, 30.0, 90.0);
+      Dinossauro dino8 = new Dinossauro(8, "Laura", 2, 2, 30.0, 100.0);
+      Dinossauro dino9 = new Dinossauro(9, "Laura", 2, 2, 30.0, 120.0);
 
       cadastroDinossauro1.adicionarDinossauro(dino1);
       cadastroDinossauro1.adicionarDinossauro(dino2);
       cadastroDinossauro1.adicionarDinossauro(dino3);
+      cadastroDinossauro1.adicionarDinossauro(dino4);
+      cadastroDinossauro1.adicionarDinossauro(dino5);
+      cadastroDinossauro1.adicionarDinossauro(dino6);
+      cadastroDinossauro1.adicionarDinossauro(dino7);
+      cadastroDinossauro1.adicionarDinossauro(dino8);
+      cadastroDinossauro1.adicionarDinossauro(dino9);
 
       System.out.println("\nBem-vindo ao Jurassic Zoo!");
 
@@ -176,10 +188,11 @@ public class App {
 
                      case "5": // top 10
                         Dinossauro vetorOrdenado[] = new Dinossauro[10];
-                        vetorOrdenado = report1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(), cadastroDinossauro1.getProxPosicao());
+                        vetorOrdenado = report1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(),
+                              cadastroDinossauro1.getProxPosicao());
 
                         System.out.println("\nVetor Ordenado");
-                        for (int i = 0; i < 10 ; i++) {
+                        for (int i = 0; i < vetorOrdenado.length; i++) {
                            System.out.println(" " + vetorOrdenado[i]);
                         }
 
