@@ -142,62 +142,57 @@ deve ser comprado no mês (considere o mês por 30 dias).*/
        A fórmula para o cálculo do tempo é tempo = distância/velocidade. */
    
 
-   public Dinossauro[] relatorioTop10(Dinossauro vetor[], int tamanho){
-       /*Relatório “Top 10 mais velozes”:
-        Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
-       
-        Dinossauro topVelozes [] = sort(vetor, tamanho);
-       
-       //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
-               
-        return topVelozes; 
-    }
-
-
-    public Dinossauro [] sort(Dinossauro vetorAntigo[], int tamanho){
-
-    Dinossauro vetorNovo[]  = new Dinossauro[this.cadastro.getProxPosicao()];
-
-    for(int i = 0; i < this.cadastro.getProxPosicao(); i++){
-        vetorNovo[i] = vetorAntigo[i];
-    }
-
-    return quickSort (vetorNovo, 0, tamanho);
-    } 
-
-   public Dinossauro[] quickSort (Dinossauro vetor[], int esquerda, int direita){
+       public Dinossauro[] relatorioTop10(Dinossauro vetor[], int tamanho){
+        /*Relatório “Top 10 mais velozes”:
+    Escreva um método que retorna  um vetor contendo os 10 dinossauros mais velozes ordenados em ordem decrescente de velocidade (maior primeiro).*/
     
+        Dinossauro top10 [] = sort(vetor, tamanho);
+        //Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros 
+        
+        return top10;
+    }
 
-        int esq = esquerda;
-        int dir = direita;
-        Dinossauro pivo = vetor[this.cadastro.getProxPosicao()/2];
-        Dinossauro troca;
+    public Dinossauro [] sort(Dinossauro vetor[], int tamanho){
+        Dinossauro vetorNovo[]  = new Dinossauro[tamanho];
 
-        while (esq <= dir){
-            while(vetor[esq].getVelocidade() > pivo.getVelocidade()){
-                esq = esq + 1;
-            }
-            while (vetor[dir].getVelocidade() < pivo.getVelocidade()){
-                dir = dir -1;
-            }
-
-            if(esq <= dir){
-                troca = vetor[esq];
-                vetor[esq] = vetor[dir];
-                vetor[dir] = troca;
-                esq = esq + 1;
-                dir = dir -1;
-            }
+        for(int i = 0; i < tamanho; i++){
+            vetorNovo[i] = vetor[i];
         }
 
-        if(dir > esquerda)
-            quickSort(vetor, esquerda, dir);
-        if(esq < direita)
-            quickSort(vetor, esq, direita);
-    
-        return vetor; 
+        return quickSort (vetorNovo, 0, tamanho);
+    } 
 
-        }   
+    public Dinossauro[] quickSort (Dinossauro vetorNovo[], int esquerda, int direita){
+
+        int esq = esquerda;
+        int dir = direita; 
+        double pivo = vetorNovo[(esq + dir) / 2].getVelocidade();  
+        Dinossauro troca;  
+  
+        while (esq <= dir) {  
+            while (vetorNovo[esq].getVelocidade() > pivo) {  
+                esq = esq + 1;  
+            }  
+            while (vetorNovo[dir].getVelocidade() < pivo) {  
+                dir = dir - 1;  
+            }  
+            if (esq <= dir) {  
+                troca = vetorNovo[esq];  
+                vetorNovo[esq] = vetorNovo[dir];  
+                vetorNovo[dir] = troca;  
+                esq = esq + 1;  
+                dir = dir - 1;  
+            }  
+        }  
+        if (dir > esquerda)  
+            quickSort(vetorNovo, esquerda, dir);  
+  
+        if (esq < direita)  
+            quickSort(vetorNovo, esq, direita);  
+
+        return vetorNovo;     
+    }
+ 
 
 
 }

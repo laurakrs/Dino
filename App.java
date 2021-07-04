@@ -178,7 +178,7 @@ public class App
 
                   case "5": //top 10
                   Dinossauro vetorOrdenado [] = new Dinossauro [cadastroDinossauro1.getProxPosicao()];
-                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(),0, cadastroDinossauro1.getProxPosicao()-1);
+                  vetorOrdenado = report1.quickSort(cadastroDinossauro1.getListaDinossauros(), 0, cadastroDinossauro1.getProxPosicao()-1);
                   
                   System.out.println("\nVetor Ordenado");
                   for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {  
