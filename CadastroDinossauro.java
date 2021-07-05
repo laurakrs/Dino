@@ -19,6 +19,14 @@ public class CadastroDinossauro{
        
     }
 
+    public Dinossauro[] getListaDinossauros(){
+        return this.ListaDinossauros;
+    }
+
+    public int getProxPosicao(){
+        return this.proxPosicao;
+    }
+
     public boolean adicionarDinossauro(Dinossauro dino){ 
         //public boolean adicionarDinossauro(Dinossauro dino): 
         //adiciona um objeto Dinossauro na última posição disponível no vetor. 
@@ -39,9 +47,9 @@ public class CadastroDinossauro{
         //pesquisa no vetor por um objeto Dinossauro com o id recebido como parâmetro. 
         //Se não encontrar, retorna null;
 
-        for(int i=0; i < proxPosicao ; i++){
-            if(ListaDinossauros[i].getId() == id){
-                return ListaDinossauros[i];
+        for(int i=0; i < this.proxPosicao ; i++){
+            if(this.ListaDinossauros[i].getId() == id){
+                return this.ListaDinossauros[i];
             }
         }
         return null; //será que vai retornar null sempre??? Espero que não! Testar
@@ -52,11 +60,11 @@ public class CadastroDinossauro{
         //remove do vetor o objeto Dinossauro que contém o id indicado. 
         //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
         for(int i = 0; i < this.proxPosicao ; i++){
-            if(ListaDinossauros[i].getId() == id){
-                ListaDinossauros[i] = null;
+            if(this.ListaDinossauros[i].getId() == id){
+                this.ListaDinossauros[i] = null;
                 // reordenar o vetor. qual forma de reordenar vamos escolher? todo mundo depois do ListaDinossauros[i] tem que andar um pra trás
-                for(int j = i+1; j < proxPosicao; j++){ //fiz uma loucura aqui que acho que não funciona
-                    ListaDinossauros[j-1] = ListaDinossauros[j]; //não deve estar certo 
+                for(int j = i+1; j < this.proxPosicao; j++){ //fiz uma loucura aqui que acho que não funciona
+                    this.ListaDinossauros[j-1] = this.ListaDinossauros[j]; //não deve estar certo 
                 }
                 this.proxPosicao = this.proxPosicao - 1; 
                 return true; 
@@ -93,17 +101,9 @@ public class CadastroDinossauro{
             return true;
         }
     }
-  
-    public Dinossauro[] getListaDinossauros(){
-        return this.ListaDinossauros;
-    }
-
-    public int getProxPosicao(){
-        return this.proxPosicao;
-    }
 
     public void imprimeLista(){
-        for(int i = 0; i < proxPosicao; i++){
+        for(int i = 0; i < this.proxPosicao; i++){
             System.out.println(this.ListaDinossauros[i]);
             
         }

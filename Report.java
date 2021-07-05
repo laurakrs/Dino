@@ -108,6 +108,21 @@ public class Report {
     }
 
     public boolean relatorioDaTempoDeFugir(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker) {
+        /*
+         * Relatório “Dá tempo de fugir?”: Esse relatório, devido aos últimos acidentes,
+         * é considerado de extrema importância. Considera-se que, para corridas curtas
+         * em situação de extremo desespero, uma pessoa consiga correr em média a
+         * 20km/h. Sabemos que alguns dinossauros são corredores natos. Assim, as cercas
+         * para observação são construídas a determinada distância do dinossauro e
+         * bunkers de proteção são instalados próximo as cercas para pessoas se
+         * abrigarem em caso de fuga do animal. Crie um método que peça por parâmetro: o
+         * Iddodinossauro. o Distância entre o dinossauro e o bunker (em km). o
+         * Distância entre a pessoa e o bunker (em km). Seu método deverá retornar
+         * verdadeiro quando o tempo que a pessoa leva para correr até o bunker é menor
+         * que o tempo que o dinossauro leva para correr a mesma distância. Caso
+         * contrário, deve retornar falso. A fórmula para o cálculo do tempo é tempo =
+         * distância/velocidade.
+         */
 
         double tempoDinossauro = 0.0;
         double tempoPessoa = 0.0;
@@ -133,22 +148,6 @@ public class Report {
         }
     }
 
-    /*
-     * Relatório “Dá tempo de fugir?”: Esse relatório, devido aos últimos acidentes,
-     * é considerado de extrema importância. Considera-se que, para corridas curtas
-     * em situação de extremo desespero, uma pessoa consiga correr em média a
-     * 20km/h. Sabemos que alguns dinossauros são corredores natos. Assim, as cercas
-     * para observação são construídas a determinada distância do dinossauro e
-     * bunkers de proteção são instalados próximo as cercas para pessoas se
-     * abrigarem em caso de fuga do animal. Crie um método que peça por parâmetro: o
-     * Iddodinossauro. o Distância entre o dinossauro e o bunker (em km). o
-     * Distância entre a pessoa e o bunker (em km). Seu método deverá retornar
-     * verdadeiro quando o tempo que a pessoa leva para correr até o bunker é menor
-     * que o tempo que o dinossauro leva para correr a mesma distância. Caso
-     * contrário, deve retornar falso. A fórmula para o cálculo do tempo é tempo =
-     * distância/velocidade.
-     */
-
     public Dinossauro[] relatorioTop10(Dinossauro vetor[], int tamanho) {
         /*
          * Relatório “Top 10 mais velozes”: Escreva um método que retorna um vetor
@@ -158,16 +157,15 @@ public class Report {
 
         Dinossauro topVelozes[] = sort(vetor, tamanho);
         Dinossauro top10[] = new Dinossauro[10];
-        
-        // Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10
-        // primeiros
-        if (this.cadastro.getProxPosicao() >= 10) {
+
+        // Ordenar o vetor em relacao a velocidade dos dinos e aí imprimir os 10 primeiros
+        if (this.cadastro.getProxPosicao() >= 10) { //se tem mais de 10
             for (int i = 0; i < 10; i++) {
                 top10[i] = topVelozes[i];
             }
             return top10;
-        } else {
-            return topVelozes;
+        } else { //se tem menos de 10 já 
+            return topVelozes;  
         }
 
     }
