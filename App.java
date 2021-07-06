@@ -39,7 +39,7 @@ public class App {
 
       while (running) {
          System.out
-               .println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Cadastro \n2 - Relatorio \n3 - Sair");
+               .println("\nMenu de opcoes: \nEntre com a opcao desejada: \n1 - Adicionar, remover ou pesquisar um dinossauro \n2 - Relatorios \n3 - Sair");
          opcao1 = in.nextLine();
          switch (opcao1) {
             case "1":// Menu de opções
@@ -120,7 +120,8 @@ public class App {
                      case "3": // Remover dinossauro
                         System.out.println("Qual é o numero de identificacao do dinossauro que voce deseja remover? \n");
                         id = Integer.parseInt(in.nextLine());
-                        System.out.println(cadastroDinossauro1.removerDinossauro(id));
+                        System.out.println("\n" + cadastroDinossauro1.removerDinossauro(id) + "\n");
+                        System.out.println("Esses são os dinossauros que seguem cadastrados no banco de dados do parque: \n");
                         cadastroDinossauro1.imprimeLista();
                         running2 = false;
                         break;

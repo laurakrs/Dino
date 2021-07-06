@@ -34,7 +34,7 @@ public class Dinossauro {
     }
 
     public int getTipo(){
-        return this.tipo;
+         return this.tipo;
     }
 
     public void setTipo(int tipo){
