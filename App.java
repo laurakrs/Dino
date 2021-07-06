@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//import java.util.Arrays;
 
 public class App {
    public static void main(String args[]) {
@@ -13,15 +12,15 @@ public class App {
       CadastroDinossauro cadastroDinossauro1 = new CadastroDinossauro();
       Report report1 = new Report(cadastroDinossauro1);
 
-      Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 1, 10.0, 10.0);
-      Dinossauro dino2 = new Dinossauro(2, "Galinha", 2, 3, 15.0, 35.0);
-      Dinossauro dino3 = new Dinossauro(3, "Laura", 2, 2, 30.0, 30.0);
-      Dinossauro dino4 = new Dinossauro(4, "Tiranossauro Rex", 1, 1, 10.0, 120.0);
-      Dinossauro dino5 = new Dinossauro(5, "Galinha", 2, 3, 15.0, 70.0);
-      Dinossauro dino6 = new Dinossauro(6, "Laura", 2, 2, 30.0, 80.0);
-      Dinossauro dino7 = new Dinossauro(7, "Laura", 2, 2, 30.0, 90.0);
-      Dinossauro dino8 = new Dinossauro(8, "Laura", 2, 2, 30.0, 100.0);
-      Dinossauro dino9 = new Dinossauro(9, "Laura", 2, 2, 30.0, 120.0);
+      Dinossauro dino1 = new Dinossauro(1, "Tiranossauro Rex", 1, 3, 6000.0, 72.0);
+      Dinossauro dino2 = new Dinossauro(2, "Velociraptor", 1, 1, 90.0, 100.0);
+      Dinossauro dino3 = new Dinossauro(3, "Estegossauro", 2, 2, 4000.0, 15.0);
+      Dinossauro dino4 = new Dinossauro(4, "Triceratops", 2, 2, 8000.0, 32.0);
+      Dinossauro dino5 = new Dinossauro(5, "Braquiossauro", 2, 3, 80000.0, 20.0);
+      Dinossauro dino6 = new Dinossauro(6, "Pterodáctilo", 1, 1, 2.0, 1.0);
+      Dinossauro dino7 = new Dinossauro(7, "Alossauro", 1, 3, 2000.0, 55.0);
+      Dinossauro dino8 = new Dinossauro(8, "Giganotossauro", 1, 3, 8200.0, 50.0);
+      Dinossauro dino9 = new Dinossauro(9, "Anquilossauro", 2, 2, 9000.0, 8.0);
 
       cadastroDinossauro1.adicionarDinossauro(dino1);
       cadastroDinossauro1.adicionarDinossauro(dino2);
@@ -151,7 +150,7 @@ public class App {
                      case "2": // Peso pesado
                         int tipoPesado;
                         int categoriaPesado;
-                        System.out.println("Bem vindo ao Peso Pesado. Qual é o tipo? 1 - Carnívoros ou 2 - Herbívoros");
+                        System.out.println("Bem vindo ao relatório 'Peso Pesado'. Qual é o tipo? 1 - Carnívoros ou 2 - Herbívoros");
                         tipoPesado = Integer.parseInt(in.nextLine());
                         System.out.println("Qual é a categoria? 1 - PP; 2 - MP; 3 - GP");
                         categoriaPesado = Integer.parseInt(in.nextLine());
@@ -160,11 +159,11 @@ public class App {
                         running2 = false;
                         break;
                      case "3": // QTD de carne
-                        System.out.println("A qtd de carne necessaura é" + report1.relatorioQtdDeCarne() + " kg.");
+                        System.out.println("A quantidade de carne necessária é" + report1.relatorioQtdDeCarne() + " kg.");
                         running2 = false;
                         break;
 
-                     case "4": // tempo de fugir
+                     case "4": // Da tempo de fugir?
 
                         int idDino = 0;
                         double distanciaDinoBunker = 0;
@@ -173,12 +172,12 @@ public class App {
 
                         while(checkEntradas){
                         System.out.println(
-                              "Bem vindo ao Da tempo de fugir?. Escolha um dos dinossauros abaixo inserindo o seu ID:\n");
+                              "Bem vindo ao relatório 'Da tempo de fugir'?. Escolha um dos dinossauros abaixo inserindo o seu ID:\n");
                         cadastroDinossauro1.imprimeLista();
                         idDino = Integer.parseInt(in.nextLine());
 
                         if (cadastroDinossauro1.pesquisarDinossauro(idDino) == null) {
-                           System.out.println("Não existe dinossauro com esse Id. Tente novamente.");
+                           System.out.println("Não existe dinossauro com esse ID. Tente novamente.");
                            continue;
                         }
 
