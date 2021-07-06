@@ -1,8 +1,4 @@
 
-/*Implemente uma classe CadastroDinossauro que armazena uma lista de dinossauros na forma de
-um vetor com tamanho máximo 100 posições. Esta classe deve conter os seguintes métodos */
-
-
 public class CadastroDinossauro{
 
 
@@ -28,9 +24,9 @@ public class CadastroDinossauro{
     }
 
     public boolean adicionarDinossauro(Dinossauro dino){ 
-        //public boolean adicionarDinossauro(Dinossauro dino): 
-        //adiciona um objeto Dinossauro na última posição disponível no vetor. 
-        //Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
+
+        // Adiciona um objeto Dinossauro na última posição disponível no vetor. 
+        // Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
         if(this.proxPosicao == TOTAL_DINOS){
             System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
             return false;
@@ -42,29 +38,28 @@ public class CadastroDinossauro{
         }
     }
 
-    public Dinossauro pesquisarDinossauro(int id){ //o que significa esse static que eu coloquei aqui pra fucnionar?
-        //public Dinossauro pesquisarDinossauro(int id): 
-        //pesquisa no vetor por um objeto Dinossauro com o id recebido como parâmetro. 
-        //Se não encontrar, retorna null;
+    public Dinossauro pesquisarDinossauro(int id){
+
+        // Pesquisa no vetor por um objeto Dinossauro com o ID recebido como parametro
+        // Se não encontrar, retorna null;
 
         for(int i=0; i < this.proxPosicao ; i++){
             if(this.ListaDinossauros[i].getId() == id){
                 return this.ListaDinossauros[i];
             }
         }
-        return null; //será que vai retornar null sempre??? Espero que não! Testar
+        return null; 
     }
     
     public boolean removerDinossauro(int id){
         
-        //remove do vetor o objeto Dinossauro que contém o id indicado. 
-        //Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
+        // Remove do vetor o objeto Dinossauro que contém o id indicado. 
+        // Retorna true em caso de sucesso ou false se não encontrar o objeto.*/
         for(int i = 0; i < this.proxPosicao ; i++){
             if(this.ListaDinossauros[i].getId() == id){
                 this.ListaDinossauros[i] = null;
-                // reordenar o vetor. qual forma de reordenar vamos escolher? todo mundo depois do ListaDinossauros[i] tem que andar um pra trás
-                for(int j = i+1; j < this.proxPosicao; j++){ //fiz uma loucura aqui que acho que não funciona
-                    this.ListaDinossauros[j-1] = this.ListaDinossauros[j]; //não deve estar certo 
+                for(int j = i+1; j < this.proxPosicao; j++){ 
+                    this.ListaDinossauros[j-1] = this.ListaDinossauros[j]; 
                 }
                 this.proxPosicao = this.proxPosicao - 1; 
                 return true; 
@@ -94,7 +89,7 @@ public class CadastroDinossauro{
     }
 
     public boolean verificaCategoria(int categoria){
-        if (categoria != 1 && categoria != 2 && categoria != 3){ //categoria errada 
+        if (categoria != 1 && categoria != 2 && categoria != 3){
             System.out.println("Categoria de dinossauro inválido. Digite 1 para PP, 2 para MP e 3 para GP. Tente novamente.");
             return false;
         } else{
