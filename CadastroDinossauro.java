@@ -28,12 +28,12 @@ public class CadastroDinossauro{
         // Adiciona um objeto Dinossauro na última posição disponível no vetor. 
         // Retorna true em caso de sucesso ou false caso o vetor já esteja cheio.
         if(this.proxPosicao == TOTAL_DINOS){
-            System.out.println("O vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.");
+            System.out.println("\nO vetor de dinossauros já está cheio! Não é possível adicionar mais dinossauros.\n");
             return false;
         }else{
             this.ListaDinossauros[proxPosicao] = dino;
             this.proxPosicao++;
-            System.out.println("Sucesso! Dinossauro adicionado!");
+            System.out.println("\nSucesso! Dinossauro adicionado!\n");
             return true;
         }
     }
@@ -72,7 +72,7 @@ public class CadastroDinossauro{
     public boolean verificaEntradaPositiva(double valor){
 
         if(valor <= 0){
-            System.out.println("Valor inválido. Digite uma valor maior do que 0. ");
+            System.out.println("Valor inválido. Digite uma valor maior do que 0. \n");
             return false;
         } else{
             return true;
@@ -81,7 +81,7 @@ public class CadastroDinossauro{
 
     public boolean verificaTipo(int tipo){
         if(tipo != 1 && tipo != 2){
-            System.out.println("Tipo de dinossauro inválido. Digite 1 para carnivoros e 2 para herbivoros. Tente novamente.");
+            System.out.println("Tipo de dinossauro inválido. Digite 1 para carnivoros e 2 para herbivoros. Tente novamente.\n");
             return false;
         } else{
             return true;
@@ -90,7 +90,7 @@ public class CadastroDinossauro{
 
     public boolean verificaCategoria(int categoria){
         if (categoria != 1 && categoria != 2 && categoria != 3){
-            System.out.println("Categoria de dinossauro inválido. Digite 1 para PP, 2 para MP e 3 para GP. Tente novamente.");
+            System.out.println("Categoria de dinossauro inválido. Digite 1 para PP, 2 para MP e 3 para GP. Tente novamente.\n");
             return false;
         } else{
             return true;
