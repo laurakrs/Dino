@@ -208,7 +208,7 @@ public class App {
                         vetorOrdenado = report1.relatorioTop10(cadastroDinossauro1.getListaDinossauros(),
                               cadastroDinossauro1.getProxPosicao());
 
-                        System.out.println("\nVetor Ordenado");
+                        System.out.println("\nTop 10 dinossauros mais velozes\n");
                         for (int i = 0; i < vetorOrdenado.length; i++) {
                            System.out.println(" " + vetorOrdenado[i]);
                         }
