@@ -63,7 +63,7 @@ public class App {
                         System.out.println("\nVamos adicionar um novo dinossauro!\n");
 
                         while (confereAdicionaDino) {
-                           System.out.println("Número de identificacao do dinossauro: \n"); // Tipo: int
+                           System.out.println("Número de identificacao (número inteiro) do dinossauro: \n"); // Tipo: int
                            id = Integer.parseInt(in.nextLine());
                            if (cadastroDinossauro1.pesquisarDinossauro(id) != null) {
                               System.out.println("Já existe um dinossauro com esse ID. Tente novamente. \n");
