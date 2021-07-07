@@ -212,13 +212,6 @@ public class App {
                         for (int i = 0; i < vetorOrdenado.length; i++) {
                            System.out.println(" " + vetorOrdenado[i]);
                         }
-
-                        // NÃO ESQUECER DE RETIRAR DEPOIS DOS TESTES 
-
-                        System.out.println("\nVetor antigo: ");
-                        for (int i = 0; i < cadastroDinossauro1.getProxPosicao(); i++) {
-                           System.out.println(" " + cadastroDinossauro1.getListaDinossauros()[i]);
-                        }
                         running2 = false;
                         break;
 
