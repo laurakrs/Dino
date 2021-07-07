@@ -67,7 +67,7 @@ public class Dinossauro {
 
     @Override //toString
     public String toString(){
-        return ("ID do dinossauro: " + this.id + " | Nome da raca: " + this.nomeRaca + " | Tipo " + this.tipo  + " | Categoria: " + this.categoria + " | Peso " + this.peso + " kg" + " | Velocidade " + this.velocidade + " km/h");
+        return ("ID do dinossauro: " + this.id + " | Nome da raca: " + this.nomeRaca + " | Tipo: " + this.tipo  + " | Categoria: " + this.categoria + " | Peso: " + this.peso + " kg" + " | Velocidade: " + this.velocidade + " km/h");
     
     }
 
