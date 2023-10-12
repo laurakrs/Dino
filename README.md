@@ -1,10 +1,10 @@
 # Dino
 
 TITULO DO PROJETO: Parque dos Dinossauros\n
-OBJETIVO DO PROJETO: \n
-VERSÃO ou DATA: 07/07/2021\n
-COMO INICIAR O PROJETO: Importar o programa para sua IDE de preferência
-AUTORES: Laura Keidann Rodrigues da Silva (21110135-7), Raquel Severo Celia (21110313-0), Rhaynne Lopes Miranda (21110645-5)
+OBJETIVO DO PROJETO: <br/>
+VERSÃO ou DATA: 07/07/2021<br/>
+COMO INICIAR O PROJETO: Importar o programa para sua IDE de preferência<br/>
+AUTORES: Laura Keidann Rodrigues da Silva (21110135-7), Raquel Severo Celia (21110313-0), Rhaynne Lopes Miranda (21110645-5)<br/>
 INSTRUÇÕES PARA O USUÁRIO: 
 
 Ao iniciar o programa, escolha entre "Adicionar, remover ou pesquisar um dinossauro", "Relatórios" ou "Sair". Se optar pelo menu "Adicionar, remover ou pesquisar um dinossauro", digite o número correspondente para receber as informações.
